@@ -14,7 +14,7 @@ defineProps<Props>();
 
 <template>
     <img
-        :src="'./images/chai-associates-logo.jpg'"
+        :src="'/images/chai-associates-logo.jpg'"
         alt="CHAI & ASSOCIATES"
         :class="className"
         class="object-cover object-center"

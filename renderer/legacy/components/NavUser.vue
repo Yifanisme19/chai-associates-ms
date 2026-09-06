@@ -16,8 +16,8 @@ const iconOnly = computed(() => state.value === "collapsed" && !isMobile.value);
       <SidebarMenuButton
         size="lg"
         as="div"
-        tooltip="Personal workspace · Local SQLite"
-        aria-label="Personal workspace · Local SQLite"
+        tooltip="Personal workspace · Local MySQL"
+        aria-label="Personal workspace · Local MySQL"
         :class="iconOnly ? 'justify-center !p-0' : 'min-w-0'"
         data-testid="personal-workspace"
       >
@@ -32,7 +32,7 @@ const iconOnly = computed(() => state.value === "collapsed" && !isMobile.value);
         >
           <span class="truncate font-medium">Personal workspace</span
           ><span class="truncate text-xs text-muted-foreground"
-            >Local SQLite</span
+            >Local MySQL</span
           >
         </div>
       </SidebarMenuButton>

@@ -3,7 +3,7 @@ import vue from "@vitejs/plugin-vue";
 import tailwindcss from "@tailwindcss/vite";
 import { fileURLToPath } from "node:url";
 export default defineConfig({
-  base: "./",
+  base: "/",
   plugins: [vue(), tailwindcss()],
   resolve: {
     alias: {

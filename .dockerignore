@@ -1,0 +1,14 @@
+.git
+node_modules
+dist
+release
+output
+.env
+.env.*
+server/vendor
+electron
+core
+*.sqlite*
+
+server/data/
+.playwright-cli/

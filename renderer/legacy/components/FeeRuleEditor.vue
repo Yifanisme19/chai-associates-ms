@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref, watch } from 'vue';
-import { desktopRequest } from '../../bridge';
+import { toolRequest } from '../../bridge';
 import FeeRuleFields from '@/components/FeeRuleFields.vue';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -60,7 +60,7 @@ async function simulate() {
                 .find((v) => v.startsWith('XSRF-TOKEN='))
                 ?.split('=')[1] ?? '',
         );
-        const response = await desktopRequest('/rule-catalogs/simulate', {
+        const response = await toolRequest('/rule-catalogs/simulate', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

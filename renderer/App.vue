@@ -1,5 +1,6 @@
 <script setup>
-import { ref, computed, onMounted } from "vue";
+import { api } from "./api";
+import { ref, computed, onMounted, watchEffect } from "vue";
 import {
   page,
   view,
@@ -41,13 +42,31 @@ const title = computed(
 );
 onMounted(async () => {
   try {
-    if (!window.desktop)
-      throw new Error("Launch the desktop application with npm start.");
-    storage.value = await unwrap(window.desktop.settings());
-    await navigate("/quotations", { force: true });
+    if (!api) throw new Error("Start the local Docker service.");
+    storage.value = await unwrap(api.settings());
+    await navigate(
+      location.pathname === "/"
+        ? "/quotations"
+        : location.pathname + location.search,
+      { force: true, historyMode: "replace" },
+    );
     ready.value = true;
   } catch (e) {
     error.value = e.message;
+  }
+});
+watchEffect(() => {
+  document.title = `${title.value} · Chai & Associates`;
+});
+window.addEventListener("popstate", async () => {
+  try {
+    await navigate(location.pathname + location.search, {
+      historyMode: "none",
+    });
+    if (page.url !== location.pathname + location.search)
+      history.pushState({}, "", page.url);
+  } catch (e) {
+    toast.error(e.message);
   }
 });
 window.addEventListener("beforeunload", (e) => {
@@ -57,6 +76,8 @@ window.addEventListener("beforeunload", (e) => {
   }
 });
 document.addEventListener("click", (e) => {
+  if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0)
+    return;
   const a = e.target.closest?.("a");
   const href = a?.getAttribute("href");
   if (href?.startsWith("/") && !e.defaultPrevented) {

@@ -1,25 +1,18 @@
 {
-  "name": "chai-associates-desktop",
-  "version": "1.0.0",
+  "name": "chai-associates-local-tools",
+  "version": "2.0.0",
   "private": true,
   "type": "module",
-  "main": "electron/main.cjs",
   "scripts": {
-    "dev": "npm run start",
     "build": "vite build",
-    "start": "npm run build && electron .",
-    "test": "node --test test/*.test.mjs",
-    "pack": "npm run build && electron-builder --dir",
-    "dist": "npm run build && electron-builder"
+    "start": "docker compose up -d --build",
+    "stop": "docker compose stop",
+    "logs": "docker compose logs -f",
+    "test": "php server/tests/run.php"
   },
-  "dependencies": {
-    "exceljs": "^4.4.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@vitejs/plugin-vue": "6.0.7",
-    "electron": "44.2.0",
-    "electron-builder": "26.15.3",
-    "playwright": "^1.58.2",
     "typescript": "^5.9.3",
     "vite": "8.2.2",
     "@lucide/vue": "^1.17.0",
@@ -34,49 +27,6 @@
     "vue": "3.5.42",
     "vue-sonner": "^2.0.0"
   },
-  "build": {
-    "appId": "my.chai.associates.desktop",
-    "productName": "Chai Associates",
-    "files": [
-      "dist/**/*",
-      "electron/**/*",
-      "core/**/*",
-      "seed/**/*"
-    ],
-    "mac": {
-      "target": [
-        "dmg"
-      ],
-      "category": "public.app-category.business",
-      "icon": "build/icon.png",
-      "identity": "-",
-      "hardenedRuntime": false,
-      "notarize": false
-    },
-    "win": {
-      "target": [
-        "nsis"
-      ],
-      "icon": "build/icon.png",
-      "signExecutable": false
-    },
-    "linux": {
-      "target": [
-        "AppImage"
-      ],
-      "category": "Office",
-      "icon": "build/icon.png"
-    },
-    "directories": {
-      "output": "release"
-    },
-    "artifactName": "Chai-Associates-${version}-${os}-${arch}.${ext}"
-  },
-  "overrides": {
-    "exceljs": {
-      "uuid": "11.1.1"
-    }
-  },
-  "description": "Local SQLite desktop workspace for quotations and fee templates",
+  "description": "Local PHP 8 and MySQL quotation tools",
   "author": "Chai & Associates"
 }

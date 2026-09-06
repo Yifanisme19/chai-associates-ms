@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Head, Link, router, useForm } from '@inertiajs/vue3';
-import { desktopRequest, setDirty } from '../../../bridge';
+import { toolRequest, setDirty } from '../../../bridge';
 import { confirmAction } from '@/lib/confirmAction';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription } from '@/components/ui/sheet';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
@@ -455,7 +455,7 @@ const sst = computed(() =>
         ),
 );
 const money = (v: number) =>
-    v.toLocaleString('en-MY', {
+    Number(v ?? 0).toLocaleString('en-MY', {
         minimumFractionDigits: 2,
         maximumFractionDigits: 2,
     });
@@ -463,7 +463,7 @@ const sourceLabel = (i: Item) =>
     i.source === 'rule'
         ? 'Calculated by rule'
         : i.source === 'manual'
-          ? 'Employee enters amount'
+          ? 'Enter amount when quoting'
           : 'Fixed amount';
 const slug = (v: string) =>
     v
@@ -715,7 +715,7 @@ async function compareImpact() {
                 .find((value) => value.startsWith('XSRF-TOKEN='))
                 ?.split('=')[1] ?? '',
         );
-        const response = await desktopRequest(`/templates/${active.value.id}/impact`, {
+        const response = await toolRequest(`/templates/${active.value.id}/impact`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -1061,7 +1061,7 @@ function createBusiness() {
                                     {{
                                         i.sst
                                             ? money(
-                                                  i.amount *
+                                                  Number(i.amount ?? 0) *
                                                       Number(
                                                           active.rules
                                                               .sst_rate ?? 0.08,

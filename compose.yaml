@@ -1,0 +1,47 @@
+name: chai-php-tools
+x-environment: &environment
+  DB_HOST: db
+  DB_NAME: chai
+  DB_USER: chai
+  DB_PASSWORD: ${DB_PASSWORD:?Set DB_PASSWORD in .env}
+services:
+  web:
+    build: .
+    ports:
+      - "127.0.0.1:${APP_PORT:-8088}:80"
+    environment: *environment
+    volumes:
+      - backups:/var/www/data
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+  backup:
+    build: .
+    command: ["php", "/var/www/backup-worker.php"]
+    user: www-data
+    environment: *environment
+    volumes:
+      - backups:/var/www/data
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+  db:
+    image: mysql:8.4
+    environment:
+      MYSQL_DATABASE: chai
+      MYSQL_USER: chai
+      MYSQL_PASSWORD: ${DB_PASSWORD:?Set DB_PASSWORD in .env}
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:?Set DB_ROOT_PASSWORD in .env}
+    volumes:
+      - mysql-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD-SHELL", "MYSQL_PWD=\"$$MYSQL_PASSWORD\" mysqladmin ping -h 127.0.0.1 -u chai --silent"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+    restart: unless-stopped
+volumes:
+  mysql-data:
+  backups:

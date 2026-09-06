@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { toast } from 'vue-sonner';
-import { desktopRequest, exportQuotation, setDirty } from '../../../bridge';
+import { toolRequest, exportQuotation, setDirty } from '../../../bridge';
 import { Head } from '@inertiajs/vue3';
 import {
     ArrowDown,
@@ -369,7 +369,7 @@ async function request(
     busy.value = true;
     errors.value = {};
     try {
-        const response = await desktopRequest(url, {
+        const response = await toolRequest(url, {
             method,
             signal,
             headers: {

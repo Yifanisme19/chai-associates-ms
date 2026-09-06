@@ -12,3 +12,7 @@ output/
 .qa/
 .DS_Store
 *.log
+server/vendor/
+server/data/
+
+.playwright-cli/

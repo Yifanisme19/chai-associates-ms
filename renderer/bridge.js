@@ -1,3 +1,4 @@
+import { api } from "./api";
 import { reactive, ref, defineComponent, h, nextTick } from "vue";
 import { toast } from "vue-sonner";
 export const page = reactive({
@@ -21,7 +22,7 @@ export async function unwrap(p) {
   return r.result;
 }
 export const rpc = (method, args = {}) =>
-  unwrap(window.desktop.rpc(method, JSON.parse(JSON.stringify(args))));
+  unwrap(api.rpc(method, JSON.parse(JSON.stringify(args))));
 export function legacyQuote(q) {
   quoteRevisions.set(q.id, q.revision);
   return {
@@ -65,18 +66,21 @@ function templateProps(code) {
     })),
   };
 }
-export async function navigate(href, { force = false } = {}) {
+export async function navigate(
+  href,
+  { force = false, historyMode = "push" } = {},
+) {
   href = typeof href === "string" ? href : href.url;
   if (dirty.value && !force && !window.confirm("Discard unsaved changes?"))
     return;
   const ticket = ++navigateSequence;
-  const u = new URL(href, "http://desktop.local"),
+  const u = new URL(href, "http://localhost"),
     exportMatch = u.pathname.match(/^\/quotations\/([^/]+)\/(pdf|excel)$/);
   if (exportMatch) return exportQuotation(exportMatch[1], exportMatch[2]);
   let nextView,
     nextProps = {};
   if (u.pathname === "/settings") {
-    storage.value = await unwrap(window.desktop.settings());
+    storage.value = await unwrap(api.settings());
     nextView = "settings";
   } else {
     await reloadTemplates();
@@ -141,6 +145,13 @@ export async function navigate(href, { force = false } = {}) {
   }
   if (ticket !== navigateSequence) return;
   dirty.value = false;
+  if (historyMode !== "none" && location.pathname + location.search !== href) {
+    history[historyMode === "replace" ? "replaceState" : "pushState"](
+      {},
+      "",
+      href,
+    );
+  }
   page.url = href;
   view.value = nextView;
   viewProps.value = nextProps;
@@ -149,9 +160,9 @@ export async function navigate(href, { force = false } = {}) {
 export async function exportQuotation(id, type) {
   try {
     const target = await unwrap(
-      window.desktop.export(id, type === "excel" ? "xlsx" : type),
+      api.export(id, type === "excel" ? "xlsx" : type),
     );
-    if (target) toast.success(`Exported to ${target}`);
+    if (target) toast.success(`Downloaded ${target}`);
   } catch (e) {
     toast.error(e.message);
   }
@@ -173,13 +184,15 @@ async function mutate(url, method, data = {}) {
         template_id: data.rule_set_id,
         input: { ...data, status: "draft" },
       });
+      const editUrl = `/quotations/${q.id}/edit`;
+      history.replaceState({}, "", editUrl);
+      page.url = editUrl;
       return legacyQuote(q);
     }
     await navigate(page.url, { force: true });
     return result;
   }
-  if (parts[0] !== "templates")
-    throw new Error("Unsupported desktop operation.");
+  if (parts[0] !== "templates") throw new Error("Unsupported operation.");
   const source = templates.find(
     (t) => t.id === (parts[1] || data.source_rule_set_id),
   );
@@ -229,7 +242,7 @@ async function mutate(url, method, data = {}) {
   toast.success("Template saved.");
   return result;
 }
-export async function desktopRequest(url, options = {}) {
+export async function toolRequest(url, options = {}) {
   try {
     if (options.signal?.aborted)
       throw new DOMException("Aborted", "AbortError");
@@ -337,6 +350,14 @@ export const Link = defineComponent({
                   typeof props.href === "string" ? props.href : props.href?.url,
               }),
           onClick: (e) => {
+            if (
+              e.metaKey ||
+              e.ctrlKey ||
+              e.shiftKey ||
+              e.altKey ||
+              e.button !== 0
+            )
+              return;
             e.preventDefault();
             attrs.onClick?.(e);
             router.visit(props.href);
