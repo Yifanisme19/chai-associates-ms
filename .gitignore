@@ -1,0 +1,14 @@
+node_modules/
+dist/
+release/
+output/
+*.sqlite*
+*.db
+*.db-*
+*.dump
+.env
+.env.*
+!.env.example
+.qa/
+.DS_Store
+*.log

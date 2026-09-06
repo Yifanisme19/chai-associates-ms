@@ -1,0 +1,2847 @@
+[
+    {
+        "code": "loan-refinance-title",
+        "input": {
+            "loan_amount": 0,
+            "ccm_search_amount": 75.5,
+            "finance_legal_fee": true,
+            "legal_fee_financed_amount": 5000,
+            "finance_insurance": true,
+            "insurance_financed_amount": 1200
+        },
+        "summary": {
+            "professional_fees": 1200,
+            "disbursements": 3110.5,
+            "sst": 160,
+            "total_payable": 4470.5,
+            "stamp_duty_basis": 5000,
+            "total_financing": 6200
+        },
+        "items": [
+            {
+                "code": "facilities_agreement",
+                "amount": 0,
+                "sst_applicable": true
+            },
+            {
+                "code": "charge",
+                "amount": 0,
+                "sst_applicable": true
+            },
+            {
+                "code": "discharge",
+                "amount": 400,
+                "sst_applicable": true
+            },
+            {
+                "code": "caveat_legal",
+                "amount": 500,
+                "sst_applicable": true
+            },
+            {
+                "code": "statutory_declaration_legal",
+                "amount": 300,
+                "sst_applicable": true
+            },
+            {
+                "code": "title_search",
+                "amount": 480,
+                "sst_applicable": false
+            },
+            {
+                "code": "bankruptcy_search",
+                "amount": 120,
+                "sst_applicable": false
+            },
+            {
+                "code": "ccm_search",
+                "amount": 75.5,
+                "sst_applicable": false
+            },
+            {
+                "code": "facility_stamp_duty",
+                "amount": 25,
+                "sst_applicable": false
+            },
+            {
+                "code": "facility_duplicate",
+                "amount": 30,
+                "sst_applicable": false
+            },
+            {
+                "code": "charge_stamp",
+                "amount": 40,
+                "sst_applicable": false
+            },
+            {
+                "code": "drr_stamp",
+                "amount": 40,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_16n_stamp",
+                "amount": 20,
+                "sst_applicable": false
+            },
+            {
+                "code": "letter_offer",
+                "amount": 80,
+                "sst_applicable": false
+            },
+            {
+                "code": "statutory_declaration_stamp",
+                "amount": 50,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_16a_registration",
+                "amount": 240,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_16n_registration",
+                "amount": 240,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_19b",
+                "amount": 500,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_19g",
+                "amount": 120,
+                "sst_applicable": false
+            },
+            {
+                "code": "drr_filing",
+                "amount": 0,
+                "sst_applicable": false
+            },
+            {
+                "code": "admin_bank",
+                "amount": 250,
+                "sst_applicable": false
+            },
+            {
+                "code": "swearing",
+                "amount": 100,
+                "sst_applicable": true
+            },
+            {
+                "code": "courier",
+                "amount": 200,
+                "sst_applicable": true
+            },
+            {
+                "code": "printing",
+                "amount": 200,
+                "sst_applicable": true
+            },
+            {
+                "code": "transportation",
+                "amount": 200,
+                "sst_applicable": true
+            },
+            {
+                "code": "miscellaneous",
+                "amount": 100,
+                "sst_applicable": true
+            }
+        ]
+    },
+    {
+        "code": "loan-refinance-title",
+        "input": {
+            "loan_amount": 100000,
+            "ccm_search_amount": 75.5,
+            "finance_legal_fee": true,
+            "legal_fee_financed_amount": 5000,
+            "finance_insurance": true,
+            "insurance_financed_amount": 1200
+        },
+        "summary": {
+            "professional_fees": 2950,
+            "disbursements": 3610.5,
+            "sst": 300,
+            "total_payable": 6860.5,
+            "stamp_duty_basis": 105000,
+            "total_financing": 106200
+        },
+        "items": [
+            {
+                "code": "facilities_agreement",
+                "amount": 1250,
+                "sst_applicable": true
+            },
+            {
+                "code": "charge",
+                "amount": 500,
+                "sst_applicable": true
+            },
+            {
+                "code": "discharge",
+                "amount": 400,
+                "sst_applicable": true
+            },
+            {
+                "code": "caveat_legal",
+                "amount": 500,
+                "sst_applicable": true
+            },
+            {
+                "code": "statutory_declaration_legal",
+                "amount": 300,
+                "sst_applicable": true
+            },
+            {
+                "code": "title_search",
+                "amount": 480,
+                "sst_applicable": false
+            },
+            {
+                "code": "bankruptcy_search",
+                "amount": 120,
+                "sst_applicable": false
+            },
+            {
+                "code": "ccm_search",
+                "amount": 75.5,
+                "sst_applicable": false
+            },
+            {
+                "code": "facility_stamp_duty",
+                "amount": 525,
+                "sst_applicable": false
+            },
+            {
+                "code": "facility_duplicate",
+                "amount": 30,
+                "sst_applicable": false
+            },
+            {
+                "code": "charge_stamp",
+                "amount": 40,
+                "sst_applicable": false
+            },
+            {
+                "code": "drr_stamp",
+                "amount": 40,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_16n_stamp",
+                "amount": 20,
+                "sst_applicable": false
+            },
+            {
+                "code": "letter_offer",
+                "amount": 80,
+                "sst_applicable": false
+            },
+            {
+                "code": "statutory_declaration_stamp",
+                "amount": 50,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_16a_registration",
+                "amount": 240,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_16n_registration",
+                "amount": 240,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_19b",
+                "amount": 500,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_19g",
+                "amount": 120,
+                "sst_applicable": false
+            },
+            {
+                "code": "drr_filing",
+                "amount": 0,
+                "sst_applicable": false
+            },
+            {
+                "code": "admin_bank",
+                "amount": 250,
+                "sst_applicable": false
+            },
+            {
+                "code": "swearing",
+                "amount": 100,
+                "sst_applicable": true
+            },
+            {
+                "code": "courier",
+                "amount": 200,
+                "sst_applicable": true
+            },
+            {
+                "code": "printing",
+                "amount": 200,
+                "sst_applicable": true
+            },
+            {
+                "code": "transportation",
+                "amount": 200,
+                "sst_applicable": true
+            },
+            {
+                "code": "miscellaneous",
+                "amount": 100,
+                "sst_applicable": true
+            }
+        ]
+    },
+    {
+        "code": "loan-refinance-title",
+        "input": {
+            "loan_amount": 500000,
+            "ccm_search_amount": 75.5,
+            "finance_legal_fee": true,
+            "legal_fee_financed_amount": 5000,
+            "finance_insurance": true,
+            "insurance_financed_amount": 1200
+        },
+        "summary": {
+            "professional_fees": 8075,
+            "disbursements": 5610.5,
+            "sst": 710,
+            "total_payable": 14395.5,
+            "stamp_duty_basis": 505000,
+            "total_financing": 506200
+        },
+        "items": [
+            {
+                "code": "facilities_agreement",
+                "amount": 6250,
+                "sst_applicable": true
+            },
+            {
+                "code": "charge",
+                "amount": 625,
+                "sst_applicable": true
+            },
+            {
+                "code": "discharge",
+                "amount": 400,
+                "sst_applicable": true
+            },
+            {
+                "code": "caveat_legal",
+                "amount": 500,
+                "sst_applicable": true
+            },
+            {
+                "code": "statutory_declaration_legal",
+                "amount": 300,
+                "sst_applicable": true
+            },
+            {
+                "code": "title_search",
+                "amount": 480,
+                "sst_applicable": false
+            },
+            {
+                "code": "bankruptcy_search",
+                "amount": 120,
+                "sst_applicable": false
+            },
+            {
+                "code": "ccm_search",
+                "amount": 75.5,
+                "sst_applicable": false
+            },
+            {
+                "code": "facility_stamp_duty",
+                "amount": 2525,
+                "sst_applicable": false
+            },
+            {
+                "code": "facility_duplicate",
+                "amount": 30,
+                "sst_applicable": false
+            },
+            {
+                "code": "charge_stamp",
+                "amount": 40,
+                "sst_applicable": false
+            },
+            {
+                "code": "drr_stamp",
+                "amount": 40,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_16n_stamp",
+                "amount": 20,
+                "sst_applicable": false
+            },
+            {
+                "code": "letter_offer",
+                "amount": 80,
+                "sst_applicable": false
+            },
+            {
+                "code": "statutory_declaration_stamp",
+                "amount": 50,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_16a_registration",
+                "amount": 240,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_16n_registration",
+                "amount": 240,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_19b",
+                "amount": 500,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_19g",
+                "amount": 120,
+                "sst_applicable": false
+            },
+            {
+                "code": "drr_filing",
+                "amount": 0,
+                "sst_applicable": false
+            },
+            {
+                "code": "admin_bank",
+                "amount": 250,
+                "sst_applicable": false
+            },
+            {
+                "code": "swearing",
+                "amount": 100,
+                "sst_applicable": true
+            },
+            {
+                "code": "courier",
+                "amount": 200,
+                "sst_applicable": true
+            },
+            {
+                "code": "printing",
+                "amount": 200,
+                "sst_applicable": true
+            },
+            {
+                "code": "transportation",
+                "amount": 200,
+                "sst_applicable": true
+            },
+            {
+                "code": "miscellaneous",
+                "amount": 100,
+                "sst_applicable": true
+            }
+        ]
+    },
+    {
+        "code": "loan-refinance-title",
+        "input": {
+            "loan_amount": 1000000,
+            "ccm_search_amount": 75.5,
+            "finance_legal_fee": true,
+            "legal_fee_financed_amount": 5000,
+            "finance_insurance": true,
+            "insurance_financed_amount": 1200
+        },
+        "summary": {
+            "professional_fees": 13575,
+            "disbursements": 8110.5,
+            "sst": 1150,
+            "total_payable": 22835.5,
+            "stamp_duty_basis": 1005000,
+            "total_financing": 1006200
+        },
+        "items": [
+            {
+                "code": "facilities_agreement",
+                "amount": 11250,
+                "sst_applicable": true
+            },
+            {
+                "code": "charge",
+                "amount": 1125,
+                "sst_applicable": true
+            },
+            {
+                "code": "discharge",
+                "amount": 400,
+                "sst_applicable": true
+            },
+            {
+                "code": "caveat_legal",
+                "amount": 500,
+                "sst_applicable": true
+            },
+            {
+                "code": "statutory_declaration_legal",
+                "amount": 300,
+                "sst_applicable": true
+            },
+            {
+                "code": "title_search",
+                "amount": 480,
+                "sst_applicable": false
+            },
+            {
+                "code": "bankruptcy_search",
+                "amount": 120,
+                "sst_applicable": false
+            },
+            {
+                "code": "ccm_search",
+                "amount": 75.5,
+                "sst_applicable": false
+            },
+            {
+                "code": "facility_stamp_duty",
+                "amount": 5025,
+                "sst_applicable": false
+            },
+            {
+                "code": "facility_duplicate",
+                "amount": 30,
+                "sst_applicable": false
+            },
+            {
+                "code": "charge_stamp",
+                "amount": 40,
+                "sst_applicable": false
+            },
+            {
+                "code": "drr_stamp",
+                "amount": 40,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_16n_stamp",
+                "amount": 20,
+                "sst_applicable": false
+            },
+            {
+                "code": "letter_offer",
+                "amount": 80,
+                "sst_applicable": false
+            },
+            {
+                "code": "statutory_declaration_stamp",
+                "amount": 50,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_16a_registration",
+                "amount": 240,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_16n_registration",
+                "amount": 240,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_19b",
+                "amount": 500,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_19g",
+                "amount": 120,
+                "sst_applicable": false
+            },
+            {
+                "code": "drr_filing",
+                "amount": 0,
+                "sst_applicable": false
+            },
+            {
+                "code": "admin_bank",
+                "amount": 250,
+                "sst_applicable": false
+            },
+            {
+                "code": "swearing",
+                "amount": 100,
+                "sst_applicable": true
+            },
+            {
+                "code": "courier",
+                "amount": 200,
+                "sst_applicable": true
+            },
+            {
+                "code": "printing",
+                "amount": 200,
+                "sst_applicable": true
+            },
+            {
+                "code": "transportation",
+                "amount": 200,
+                "sst_applicable": true
+            },
+            {
+                "code": "miscellaneous",
+                "amount": 100,
+                "sst_applicable": true
+            }
+        ]
+    },
+    {
+        "code": "loan-refinance-title",
+        "input": {
+            "loan_amount": 7500000,
+            "ccm_search_amount": 75.5,
+            "finance_legal_fee": true,
+            "legal_fee_financed_amount": 5000,
+            "finance_insurance": true,
+            "insurance_financed_amount": 1200
+        },
+        "summary": {
+            "professional_fees": 79450,
+            "disbursements": 40610.5,
+            "sst": 6420,
+            "total_payable": 126480.5,
+            "stamp_duty_basis": 7505000,
+            "total_financing": 7506200
+        },
+        "items": [
+            {
+                "code": "facilities_agreement",
+                "amount": 76250,
+                "sst_applicable": true
+            },
+            {
+                "code": "charge",
+                "amount": 2000,
+                "sst_applicable": true
+            },
+            {
+                "code": "discharge",
+                "amount": 400,
+                "sst_applicable": true
+            },
+            {
+                "code": "caveat_legal",
+                "amount": 500,
+                "sst_applicable": true
+            },
+            {
+                "code": "statutory_declaration_legal",
+                "amount": 300,
+                "sst_applicable": true
+            },
+            {
+                "code": "title_search",
+                "amount": 480,
+                "sst_applicable": false
+            },
+            {
+                "code": "bankruptcy_search",
+                "amount": 120,
+                "sst_applicable": false
+            },
+            {
+                "code": "ccm_search",
+                "amount": 75.5,
+                "sst_applicable": false
+            },
+            {
+                "code": "facility_stamp_duty",
+                "amount": 37525,
+                "sst_applicable": false
+            },
+            {
+                "code": "facility_duplicate",
+                "amount": 30,
+                "sst_applicable": false
+            },
+            {
+                "code": "charge_stamp",
+                "amount": 40,
+                "sst_applicable": false
+            },
+            {
+                "code": "drr_stamp",
+                "amount": 40,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_16n_stamp",
+                "amount": 20,
+                "sst_applicable": false
+            },
+            {
+                "code": "letter_offer",
+                "amount": 80,
+                "sst_applicable": false
+            },
+            {
+                "code": "statutory_declaration_stamp",
+                "amount": 50,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_16a_registration",
+                "amount": 240,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_16n_registration",
+                "amount": 240,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_19b",
+                "amount": 500,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_19g",
+                "amount": 120,
+                "sst_applicable": false
+            },
+            {
+                "code": "drr_filing",
+                "amount": 0,
+                "sst_applicable": false
+            },
+            {
+                "code": "admin_bank",
+                "amount": 250,
+                "sst_applicable": false
+            },
+            {
+                "code": "swearing",
+                "amount": 100,
+                "sst_applicable": true
+            },
+            {
+                "code": "courier",
+                "amount": 200,
+                "sst_applicable": true
+            },
+            {
+                "code": "printing",
+                "amount": 200,
+                "sst_applicable": true
+            },
+            {
+                "code": "transportation",
+                "amount": 200,
+                "sst_applicable": true
+            },
+            {
+                "code": "miscellaneous",
+                "amount": 100,
+                "sst_applicable": true
+            }
+        ]
+    },
+    {
+        "code": "loan-subsale-title",
+        "input": {
+            "loan_amount": 0,
+            "ccm_search_amount": 75.5,
+            "finance_legal_fee": true,
+            "legal_fee_financed_amount": 5000,
+            "finance_insurance": true,
+            "insurance_financed_amount": 1200
+        },
+        "summary": {
+            "professional_fees": 800,
+            "disbursements": 2810.5,
+            "sst": 128,
+            "total_payable": 3738.5,
+            "stamp_duty_basis": 5000,
+            "total_financing": 6200
+        },
+        "items": [
+            {
+                "code": "facilities_agreement",
+                "amount": 0,
+                "sst_applicable": true
+            },
+            {
+                "code": "charge",
+                "amount": 0,
+                "sst_applicable": true
+            },
+            {
+                "code": "caveat_legal",
+                "amount": 500,
+                "sst_applicable": true
+            },
+            {
+                "code": "statutory_declaration_legal",
+                "amount": 300,
+                "sst_applicable": true
+            },
+            {
+                "code": "title_search",
+                "amount": 480,
+                "sst_applicable": false
+            },
+            {
+                "code": "bankruptcy_search",
+                "amount": 120,
+                "sst_applicable": false
+            },
+            {
+                "code": "ccm_search",
+                "amount": 75.5,
+                "sst_applicable": false
+            },
+            {
+                "code": "facility_stamp_duty",
+                "amount": 25,
+                "sst_applicable": false
+            },
+            {
+                "code": "facility_duplicate",
+                "amount": 30,
+                "sst_applicable": false
+            },
+            {
+                "code": "charge_stamp",
+                "amount": 40,
+                "sst_applicable": false
+            },
+            {
+                "code": "letter_offer",
+                "amount": 80,
+                "sst_applicable": false
+            },
+            {
+                "code": "statutory_declaration_stamp",
+                "amount": 50,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_16a_registration",
+                "amount": 240,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_19b",
+                "amount": 500,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_19g",
+                "amount": 120,
+                "sst_applicable": false
+            },
+            {
+                "code": "admin_bank",
+                "amount": 250,
+                "sst_applicable": false
+            },
+            {
+                "code": "swearing",
+                "amount": 100,
+                "sst_applicable": true
+            },
+            {
+                "code": "courier",
+                "amount": 200,
+                "sst_applicable": true
+            },
+            {
+                "code": "printing",
+                "amount": 200,
+                "sst_applicable": true
+            },
+            {
+                "code": "transportation",
+                "amount": 200,
+                "sst_applicable": true
+            },
+            {
+                "code": "miscellaneous",
+                "amount": 100,
+                "sst_applicable": true
+            }
+        ]
+    },
+    {
+        "code": "loan-subsale-title",
+        "input": {
+            "loan_amount": 100000,
+            "ccm_search_amount": 75.5,
+            "finance_legal_fee": true,
+            "legal_fee_financed_amount": 5000,
+            "finance_insurance": true,
+            "insurance_financed_amount": 1200
+        },
+        "summary": {
+            "professional_fees": 2050,
+            "disbursements": 3310.5,
+            "sst": 228,
+            "total_payable": 5588.5,
+            "stamp_duty_basis": 105000,
+            "total_financing": 106200
+        },
+        "items": [
+            {
+                "code": "facilities_agreement",
+                "amount": 1250,
+                "sst_applicable": true
+            },
+            {
+                "code": "charge",
+                "amount": 0,
+                "sst_applicable": true
+            },
+            {
+                "code": "caveat_legal",
+                "amount": 500,
+                "sst_applicable": true
+            },
+            {
+                "code": "statutory_declaration_legal",
+                "amount": 300,
+                "sst_applicable": true
+            },
+            {
+                "code": "title_search",
+                "amount": 480,
+                "sst_applicable": false
+            },
+            {
+                "code": "bankruptcy_search",
+                "amount": 120,
+                "sst_applicable": false
+            },
+            {
+                "code": "ccm_search",
+                "amount": 75.5,
+                "sst_applicable": false
+            },
+            {
+                "code": "facility_stamp_duty",
+                "amount": 525,
+                "sst_applicable": false
+            },
+            {
+                "code": "facility_duplicate",
+                "amount": 30,
+                "sst_applicable": false
+            },
+            {
+                "code": "charge_stamp",
+                "amount": 40,
+                "sst_applicable": false
+            },
+            {
+                "code": "letter_offer",
+                "amount": 80,
+                "sst_applicable": false
+            },
+            {
+                "code": "statutory_declaration_stamp",
+                "amount": 50,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_16a_registration",
+                "amount": 240,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_19b",
+                "amount": 500,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_19g",
+                "amount": 120,
+                "sst_applicable": false
+            },
+            {
+                "code": "admin_bank",
+                "amount": 250,
+                "sst_applicable": false
+            },
+            {
+                "code": "swearing",
+                "amount": 100,
+                "sst_applicable": true
+            },
+            {
+                "code": "courier",
+                "amount": 200,
+                "sst_applicable": true
+            },
+            {
+                "code": "printing",
+                "amount": 200,
+                "sst_applicable": true
+            },
+            {
+                "code": "transportation",
+                "amount": 200,
+                "sst_applicable": true
+            },
+            {
+                "code": "miscellaneous",
+                "amount": 100,
+                "sst_applicable": true
+            }
+        ]
+    },
+    {
+        "code": "loan-subsale-title",
+        "input": {
+            "loan_amount": 500000,
+            "ccm_search_amount": 75.5,
+            "finance_legal_fee": true,
+            "legal_fee_financed_amount": 5000,
+            "finance_insurance": true,
+            "insurance_financed_amount": 1200
+        },
+        "summary": {
+            "professional_fees": 7050,
+            "disbursements": 5310.5,
+            "sst": 628,
+            "total_payable": 12988.5,
+            "stamp_duty_basis": 505000,
+            "total_financing": 506200
+        },
+        "items": [
+            {
+                "code": "facilities_agreement",
+                "amount": 6250,
+                "sst_applicable": true
+            },
+            {
+                "code": "charge",
+                "amount": 0,
+                "sst_applicable": true
+            },
+            {
+                "code": "caveat_legal",
+                "amount": 500,
+                "sst_applicable": true
+            },
+            {
+                "code": "statutory_declaration_legal",
+                "amount": 300,
+                "sst_applicable": true
+            },
+            {
+                "code": "title_search",
+                "amount": 480,
+                "sst_applicable": false
+            },
+            {
+                "code": "bankruptcy_search",
+                "amount": 120,
+                "sst_applicable": false
+            },
+            {
+                "code": "ccm_search",
+                "amount": 75.5,
+                "sst_applicable": false
+            },
+            {
+                "code": "facility_stamp_duty",
+                "amount": 2525,
+                "sst_applicable": false
+            },
+            {
+                "code": "facility_duplicate",
+                "amount": 30,
+                "sst_applicable": false
+            },
+            {
+                "code": "charge_stamp",
+                "amount": 40,
+                "sst_applicable": false
+            },
+            {
+                "code": "letter_offer",
+                "amount": 80,
+                "sst_applicable": false
+            },
+            {
+                "code": "statutory_declaration_stamp",
+                "amount": 50,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_16a_registration",
+                "amount": 240,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_19b",
+                "amount": 500,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_19g",
+                "amount": 120,
+                "sst_applicable": false
+            },
+            {
+                "code": "admin_bank",
+                "amount": 250,
+                "sst_applicable": false
+            },
+            {
+                "code": "swearing",
+                "amount": 100,
+                "sst_applicable": true
+            },
+            {
+                "code": "courier",
+                "amount": 200,
+                "sst_applicable": true
+            },
+            {
+                "code": "printing",
+                "amount": 200,
+                "sst_applicable": true
+            },
+            {
+                "code": "transportation",
+                "amount": 200,
+                "sst_applicable": true
+            },
+            {
+                "code": "miscellaneous",
+                "amount": 100,
+                "sst_applicable": true
+            }
+        ]
+    },
+    {
+        "code": "loan-subsale-title",
+        "input": {
+            "loan_amount": 1000000,
+            "ccm_search_amount": 75.5,
+            "finance_legal_fee": true,
+            "legal_fee_financed_amount": 5000,
+            "finance_insurance": true,
+            "insurance_financed_amount": 1200
+        },
+        "summary": {
+            "professional_fees": 12050,
+            "disbursements": 7810.5,
+            "sst": 1028,
+            "total_payable": 20888.5,
+            "stamp_duty_basis": 1005000,
+            "total_financing": 1006200
+        },
+        "items": [
+            {
+                "code": "facilities_agreement",
+                "amount": 11250,
+                "sst_applicable": true
+            },
+            {
+                "code": "charge",
+                "amount": 0,
+                "sst_applicable": true
+            },
+            {
+                "code": "caveat_legal",
+                "amount": 500,
+                "sst_applicable": true
+            },
+            {
+                "code": "statutory_declaration_legal",
+                "amount": 300,
+                "sst_applicable": true
+            },
+            {
+                "code": "title_search",
+                "amount": 480,
+                "sst_applicable": false
+            },
+            {
+                "code": "bankruptcy_search",
+                "amount": 120,
+                "sst_applicable": false
+            },
+            {
+                "code": "ccm_search",
+                "amount": 75.5,
+                "sst_applicable": false
+            },
+            {
+                "code": "facility_stamp_duty",
+                "amount": 5025,
+                "sst_applicable": false
+            },
+            {
+                "code": "facility_duplicate",
+                "amount": 30,
+                "sst_applicable": false
+            },
+            {
+                "code": "charge_stamp",
+                "amount": 40,
+                "sst_applicable": false
+            },
+            {
+                "code": "letter_offer",
+                "amount": 80,
+                "sst_applicable": false
+            },
+            {
+                "code": "statutory_declaration_stamp",
+                "amount": 50,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_16a_registration",
+                "amount": 240,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_19b",
+                "amount": 500,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_19g",
+                "amount": 120,
+                "sst_applicable": false
+            },
+            {
+                "code": "admin_bank",
+                "amount": 250,
+                "sst_applicable": false
+            },
+            {
+                "code": "swearing",
+                "amount": 100,
+                "sst_applicable": true
+            },
+            {
+                "code": "courier",
+                "amount": 200,
+                "sst_applicable": true
+            },
+            {
+                "code": "printing",
+                "amount": 200,
+                "sst_applicable": true
+            },
+            {
+                "code": "transportation",
+                "amount": 200,
+                "sst_applicable": true
+            },
+            {
+                "code": "miscellaneous",
+                "amount": 100,
+                "sst_applicable": true
+            }
+        ]
+    },
+    {
+        "code": "loan-subsale-title",
+        "input": {
+            "loan_amount": 7500000,
+            "ccm_search_amount": 75.5,
+            "finance_legal_fee": true,
+            "legal_fee_financed_amount": 5000,
+            "finance_insurance": true,
+            "insurance_financed_amount": 1200
+        },
+        "summary": {
+            "professional_fees": 77050,
+            "disbursements": 40310.5,
+            "sst": 6228,
+            "total_payable": 123588.5,
+            "stamp_duty_basis": 7505000,
+            "total_financing": 7506200
+        },
+        "items": [
+            {
+                "code": "facilities_agreement",
+                "amount": 76250,
+                "sst_applicable": true
+            },
+            {
+                "code": "charge",
+                "amount": 0,
+                "sst_applicable": true
+            },
+            {
+                "code": "caveat_legal",
+                "amount": 500,
+                "sst_applicable": true
+            },
+            {
+                "code": "statutory_declaration_legal",
+                "amount": 300,
+                "sst_applicable": true
+            },
+            {
+                "code": "title_search",
+                "amount": 480,
+                "sst_applicable": false
+            },
+            {
+                "code": "bankruptcy_search",
+                "amount": 120,
+                "sst_applicable": false
+            },
+            {
+                "code": "ccm_search",
+                "amount": 75.5,
+                "sst_applicable": false
+            },
+            {
+                "code": "facility_stamp_duty",
+                "amount": 37525,
+                "sst_applicable": false
+            },
+            {
+                "code": "facility_duplicate",
+                "amount": 30,
+                "sst_applicable": false
+            },
+            {
+                "code": "charge_stamp",
+                "amount": 40,
+                "sst_applicable": false
+            },
+            {
+                "code": "letter_offer",
+                "amount": 80,
+                "sst_applicable": false
+            },
+            {
+                "code": "statutory_declaration_stamp",
+                "amount": 50,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_16a_registration",
+                "amount": 240,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_19b",
+                "amount": 500,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_19g",
+                "amount": 120,
+                "sst_applicable": false
+            },
+            {
+                "code": "admin_bank",
+                "amount": 250,
+                "sst_applicable": false
+            },
+            {
+                "code": "swearing",
+                "amount": 100,
+                "sst_applicable": true
+            },
+            {
+                "code": "courier",
+                "amount": 200,
+                "sst_applicable": true
+            },
+            {
+                "code": "printing",
+                "amount": 200,
+                "sst_applicable": true
+            },
+            {
+                "code": "transportation",
+                "amount": 200,
+                "sst_applicable": true
+            },
+            {
+                "code": "miscellaneous",
+                "amount": 100,
+                "sst_applicable": true
+            }
+        ]
+    },
+    {
+        "code": "spa-purchaser-title",
+        "input": {
+            "loan_amount": 0,
+            "ccm_search_amount": 75.5,
+            "finance_legal_fee": true,
+            "legal_fee_financed_amount": 5000,
+            "finance_insurance": true,
+            "insurance_financed_amount": 1200
+        },
+        "summary": {
+            "professional_fees": 600,
+            "disbursements": 2115.5,
+            "sst": 112,
+            "total_payable": 2827.5,
+            "stamp_duty_basis": 5000,
+            "total_financing": 6200
+        },
+        "items": [
+            {
+                "code": "sale_purchase_transfer",
+                "amount": 0,
+                "sst_applicable": true
+            },
+            {
+                "code": "caveat_legal",
+                "amount": 500,
+                "sst_applicable": true
+            },
+            {
+                "code": "form_i",
+                "amount": 100,
+                "sst_applicable": true
+            },
+            {
+                "code": "ckht_2a",
+                "amount": 0,
+                "sst_applicable": true
+            },
+            {
+                "code": "cp_600_cp57",
+                "amount": 0,
+                "sst_applicable": true
+            },
+            {
+                "code": "title_search",
+                "amount": 400,
+                "sst_applicable": false
+            },
+            {
+                "code": "bankruptcy_search",
+                "amount": 120,
+                "sst_applicable": false
+            },
+            {
+                "code": "ccm_search",
+                "amount": 75.5,
+                "sst_applicable": false
+            },
+            {
+                "code": "spa_stamp",
+                "amount": 50,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_14a_stamp",
+                "amount": 0,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_14a_registration",
+                "amount": 0,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_19b",
+                "amount": 500,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_19g",
+                "amount": 120,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_i_filing",
+                "amount": 50,
+                "sst_applicable": false
+            },
+            {
+                "code": "swearing",
+                "amount": 100,
+                "sst_applicable": true
+            },
+            {
+                "code": "courier",
+                "amount": 200,
+                "sst_applicable": true
+            },
+            {
+                "code": "printing",
+                "amount": 200,
+                "sst_applicable": true
+            },
+            {
+                "code": "transportation",
+                "amount": 200,
+                "sst_applicable": true
+            },
+            {
+                "code": "miscellaneous",
+                "amount": 100,
+                "sst_applicable": true
+            }
+        ]
+    },
+    {
+        "code": "spa-purchaser-title",
+        "input": {
+            "loan_amount": 100000,
+            "ccm_search_amount": 75.5,
+            "finance_legal_fee": true,
+            "legal_fee_financed_amount": 5000,
+            "finance_insurance": true,
+            "insurance_financed_amount": 1200
+        },
+        "summary": {
+            "professional_fees": 1850,
+            "disbursements": 2115.5,
+            "sst": 212,
+            "total_payable": 4177.5,
+            "stamp_duty_basis": 105000,
+            "total_financing": 106200
+        },
+        "items": [
+            {
+                "code": "sale_purchase_transfer",
+                "amount": 1250,
+                "sst_applicable": true
+            },
+            {
+                "code": "caveat_legal",
+                "amount": 500,
+                "sst_applicable": true
+            },
+            {
+                "code": "form_i",
+                "amount": 100,
+                "sst_applicable": true
+            },
+            {
+                "code": "ckht_2a",
+                "amount": 0,
+                "sst_applicable": true
+            },
+            {
+                "code": "cp_600_cp57",
+                "amount": 0,
+                "sst_applicable": true
+            },
+            {
+                "code": "title_search",
+                "amount": 400,
+                "sst_applicable": false
+            },
+            {
+                "code": "bankruptcy_search",
+                "amount": 120,
+                "sst_applicable": false
+            },
+            {
+                "code": "ccm_search",
+                "amount": 75.5,
+                "sst_applicable": false
+            },
+            {
+                "code": "spa_stamp",
+                "amount": 50,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_14a_stamp",
+                "amount": 0,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_14a_registration",
+                "amount": 0,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_19b",
+                "amount": 500,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_19g",
+                "amount": 120,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_i_filing",
+                "amount": 50,
+                "sst_applicable": false
+            },
+            {
+                "code": "swearing",
+                "amount": 100,
+                "sst_applicable": true
+            },
+            {
+                "code": "courier",
+                "amount": 200,
+                "sst_applicable": true
+            },
+            {
+                "code": "printing",
+                "amount": 200,
+                "sst_applicable": true
+            },
+            {
+                "code": "transportation",
+                "amount": 200,
+                "sst_applicable": true
+            },
+            {
+                "code": "miscellaneous",
+                "amount": 100,
+                "sst_applicable": true
+            }
+        ]
+    },
+    {
+        "code": "spa-purchaser-title",
+        "input": {
+            "loan_amount": 500000,
+            "ccm_search_amount": 75.5,
+            "finance_legal_fee": true,
+            "legal_fee_financed_amount": 5000,
+            "finance_insurance": true,
+            "insurance_financed_amount": 1200
+        },
+        "summary": {
+            "professional_fees": 6850,
+            "disbursements": 2115.5,
+            "sst": 612,
+            "total_payable": 9577.5,
+            "stamp_duty_basis": 505000,
+            "total_financing": 506200
+        },
+        "items": [
+            {
+                "code": "sale_purchase_transfer",
+                "amount": 6250,
+                "sst_applicable": true
+            },
+            {
+                "code": "caveat_legal",
+                "amount": 500,
+                "sst_applicable": true
+            },
+            {
+                "code": "form_i",
+                "amount": 100,
+                "sst_applicable": true
+            },
+            {
+                "code": "ckht_2a",
+                "amount": 0,
+                "sst_applicable": true
+            },
+            {
+                "code": "cp_600_cp57",
+                "amount": 0,
+                "sst_applicable": true
+            },
+            {
+                "code": "title_search",
+                "amount": 400,
+                "sst_applicable": false
+            },
+            {
+                "code": "bankruptcy_search",
+                "amount": 120,
+                "sst_applicable": false
+            },
+            {
+                "code": "ccm_search",
+                "amount": 75.5,
+                "sst_applicable": false
+            },
+            {
+                "code": "spa_stamp",
+                "amount": 50,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_14a_stamp",
+                "amount": 0,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_14a_registration",
+                "amount": 0,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_19b",
+                "amount": 500,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_19g",
+                "amount": 120,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_i_filing",
+                "amount": 50,
+                "sst_applicable": false
+            },
+            {
+                "code": "swearing",
+                "amount": 100,
+                "sst_applicable": true
+            },
+            {
+                "code": "courier",
+                "amount": 200,
+                "sst_applicable": true
+            },
+            {
+                "code": "printing",
+                "amount": 200,
+                "sst_applicable": true
+            },
+            {
+                "code": "transportation",
+                "amount": 200,
+                "sst_applicable": true
+            },
+            {
+                "code": "miscellaneous",
+                "amount": 100,
+                "sst_applicable": true
+            }
+        ]
+    },
+    {
+        "code": "spa-purchaser-title",
+        "input": {
+            "loan_amount": 1000000,
+            "ccm_search_amount": 75.5,
+            "finance_legal_fee": true,
+            "legal_fee_financed_amount": 5000,
+            "finance_insurance": true,
+            "insurance_financed_amount": 1200
+        },
+        "summary": {
+            "professional_fees": 11850,
+            "disbursements": 2115.5,
+            "sst": 1012,
+            "total_payable": 14977.5,
+            "stamp_duty_basis": 1005000,
+            "total_financing": 1006200
+        },
+        "items": [
+            {
+                "code": "sale_purchase_transfer",
+                "amount": 11250,
+                "sst_applicable": true
+            },
+            {
+                "code": "caveat_legal",
+                "amount": 500,
+                "sst_applicable": true
+            },
+            {
+                "code": "form_i",
+                "amount": 100,
+                "sst_applicable": true
+            },
+            {
+                "code": "ckht_2a",
+                "amount": 0,
+                "sst_applicable": true
+            },
+            {
+                "code": "cp_600_cp57",
+                "amount": 0,
+                "sst_applicable": true
+            },
+            {
+                "code": "title_search",
+                "amount": 400,
+                "sst_applicable": false
+            },
+            {
+                "code": "bankruptcy_search",
+                "amount": 120,
+                "sst_applicable": false
+            },
+            {
+                "code": "ccm_search",
+                "amount": 75.5,
+                "sst_applicable": false
+            },
+            {
+                "code": "spa_stamp",
+                "amount": 50,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_14a_stamp",
+                "amount": 0,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_14a_registration",
+                "amount": 0,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_19b",
+                "amount": 500,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_19g",
+                "amount": 120,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_i_filing",
+                "amount": 50,
+                "sst_applicable": false
+            },
+            {
+                "code": "swearing",
+                "amount": 100,
+                "sst_applicable": true
+            },
+            {
+                "code": "courier",
+                "amount": 200,
+                "sst_applicable": true
+            },
+            {
+                "code": "printing",
+                "amount": 200,
+                "sst_applicable": true
+            },
+            {
+                "code": "transportation",
+                "amount": 200,
+                "sst_applicable": true
+            },
+            {
+                "code": "miscellaneous",
+                "amount": 100,
+                "sst_applicable": true
+            }
+        ]
+    },
+    {
+        "code": "spa-purchaser-title",
+        "input": {
+            "loan_amount": 7500000,
+            "ccm_search_amount": 75.5,
+            "finance_legal_fee": true,
+            "legal_fee_financed_amount": 5000,
+            "finance_insurance": true,
+            "insurance_financed_amount": 1200
+        },
+        "summary": {
+            "professional_fees": 76850,
+            "disbursements": 2115.5,
+            "sst": 6212,
+            "total_payable": 85177.5,
+            "stamp_duty_basis": 7505000,
+            "total_financing": 7506200
+        },
+        "items": [
+            {
+                "code": "sale_purchase_transfer",
+                "amount": 76250,
+                "sst_applicable": true
+            },
+            {
+                "code": "caveat_legal",
+                "amount": 500,
+                "sst_applicable": true
+            },
+            {
+                "code": "form_i",
+                "amount": 100,
+                "sst_applicable": true
+            },
+            {
+                "code": "ckht_2a",
+                "amount": 0,
+                "sst_applicable": true
+            },
+            {
+                "code": "cp_600_cp57",
+                "amount": 0,
+                "sst_applicable": true
+            },
+            {
+                "code": "title_search",
+                "amount": 400,
+                "sst_applicable": false
+            },
+            {
+                "code": "bankruptcy_search",
+                "amount": 120,
+                "sst_applicable": false
+            },
+            {
+                "code": "ccm_search",
+                "amount": 75.5,
+                "sst_applicable": false
+            },
+            {
+                "code": "spa_stamp",
+                "amount": 50,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_14a_stamp",
+                "amount": 0,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_14a_registration",
+                "amount": 0,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_19b",
+                "amount": 500,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_19g",
+                "amount": 120,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_i_filing",
+                "amount": 50,
+                "sst_applicable": false
+            },
+            {
+                "code": "swearing",
+                "amount": 100,
+                "sst_applicable": true
+            },
+            {
+                "code": "courier",
+                "amount": 200,
+                "sst_applicable": true
+            },
+            {
+                "code": "printing",
+                "amount": 200,
+                "sst_applicable": true
+            },
+            {
+                "code": "transportation",
+                "amount": 200,
+                "sst_applicable": true
+            },
+            {
+                "code": "miscellaneous",
+                "amount": 100,
+                "sst_applicable": true
+            }
+        ]
+    },
+    {
+        "code": "spa-vendor-title",
+        "input": {
+            "loan_amount": 0,
+            "ccm_search_amount": 75.5,
+            "finance_legal_fee": true,
+            "legal_fee_financed_amount": 5000,
+            "finance_insurance": true,
+            "insurance_financed_amount": 1200
+        },
+        "summary": {
+            "professional_fees": 3000,
+            "disbursements": 1153.5,
+            "sst": 280,
+            "total_payable": 4433.5,
+            "stamp_duty_basis": 5000,
+            "total_financing": 6200
+        },
+        "items": [
+            {
+                "code": "sale_purchase",
+                "amount": 0,
+                "sst_applicable": true
+            },
+            {
+                "code": "suk_consent",
+                "amount": 0,
+                "sst_applicable": true
+            },
+            {
+                "code": "ptg_consent",
+                "amount": 0,
+                "sst_applicable": true
+            },
+            {
+                "code": "discharge",
+                "amount": 400,
+                "sst_applicable": true
+            },
+            {
+                "code": "caveat_withdrawal",
+                "amount": 0,
+                "sst_applicable": true
+            },
+            {
+                "code": "form_378",
+                "amount": 600,
+                "sst_applicable": true
+            },
+            {
+                "code": "form_i",
+                "amount": 0,
+                "sst_applicable": true
+            },
+            {
+                "code": "ckht_1a",
+                "amount": 800,
+                "sst_applicable": true
+            },
+            {
+                "code": "ckht_3_502",
+                "amount": 400,
+                "sst_applicable": true
+            },
+            {
+                "code": "cp600_cp57",
+                "amount": 500,
+                "sst_applicable": true
+            },
+            {
+                "code": "statutory_declaration",
+                "amount": 300,
+                "sst_applicable": true
+            },
+            {
+                "code": "title_search",
+                "amount": 60,
+                "sst_applicable": false
+            },
+            {
+                "code": "bankruptcy_search",
+                "amount": 60,
+                "sst_applicable": false
+            },
+            {
+                "code": "ccm_search",
+                "amount": 75.5,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_16n_stamp",
+                "amount": 10,
+                "sst_applicable": false
+            },
+            {
+                "code": "drr_stamp",
+                "amount": 0,
+                "sst_applicable": false
+            },
+            {
+                "code": "statutory_declaration_stamp",
+                "amount": 35,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_16n_registration",
+                "amount": 120,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_19g",
+                "amount": 60,
+                "sst_applicable": false
+            },
+            {
+                "code": "poa_noting",
+                "amount": 0,
+                "sst_applicable": false
+            },
+            {
+                "code": "sale_purchase_registration",
+                "amount": 0,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_378_registration",
+                "amount": 200,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_i_filing",
+                "amount": 0,
+                "sst_applicable": false
+            },
+            {
+                "code": "drr_filing",
+                "amount": 0,
+                "sst_applicable": false
+            },
+            {
+                "code": "suk_consent_fee",
+                "amount": 0,
+                "sst_applicable": false
+            },
+            {
+                "code": "ptg_consent_fee",
+                "amount": 0,
+                "sst_applicable": false
+            },
+            {
+                "code": "low_cost_penalty",
+                "amount": 0,
+                "sst_applicable": false
+            },
+            {
+                "code": "swearing",
+                "amount": 33,
+                "sst_applicable": false
+            },
+            {
+                "code": "courier_printing",
+                "amount": 200,
+                "sst_applicable": true
+            },
+            {
+                "code": "transportation",
+                "amount": 200,
+                "sst_applicable": true
+            },
+            {
+                "code": "miscellaneous",
+                "amount": 100,
+                "sst_applicable": true
+            }
+        ]
+    },
+    {
+        "code": "spa-vendor-title",
+        "input": {
+            "loan_amount": 100000,
+            "ccm_search_amount": 75.5,
+            "finance_legal_fee": true,
+            "legal_fee_financed_amount": 5000,
+            "finance_insurance": true,
+            "insurance_financed_amount": 1200
+        },
+        "summary": {
+            "professional_fees": 3000,
+            "disbursements": 1153.5,
+            "sst": 280,
+            "total_payable": 4433.5,
+            "stamp_duty_basis": 105000,
+            "total_financing": 106200
+        },
+        "items": [
+            {
+                "code": "sale_purchase",
+                "amount": 0,
+                "sst_applicable": true
+            },
+            {
+                "code": "suk_consent",
+                "amount": 0,
+                "sst_applicable": true
+            },
+            {
+                "code": "ptg_consent",
+                "amount": 0,
+                "sst_applicable": true
+            },
+            {
+                "code": "discharge",
+                "amount": 400,
+                "sst_applicable": true
+            },
+            {
+                "code": "caveat_withdrawal",
+                "amount": 0,
+                "sst_applicable": true
+            },
+            {
+                "code": "form_378",
+                "amount": 600,
+                "sst_applicable": true
+            },
+            {
+                "code": "form_i",
+                "amount": 0,
+                "sst_applicable": true
+            },
+            {
+                "code": "ckht_1a",
+                "amount": 800,
+                "sst_applicable": true
+            },
+            {
+                "code": "ckht_3_502",
+                "amount": 400,
+                "sst_applicable": true
+            },
+            {
+                "code": "cp600_cp57",
+                "amount": 500,
+                "sst_applicable": true
+            },
+            {
+                "code": "statutory_declaration",
+                "amount": 300,
+                "sst_applicable": true
+            },
+            {
+                "code": "title_search",
+                "amount": 60,
+                "sst_applicable": false
+            },
+            {
+                "code": "bankruptcy_search",
+                "amount": 60,
+                "sst_applicable": false
+            },
+            {
+                "code": "ccm_search",
+                "amount": 75.5,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_16n_stamp",
+                "amount": 10,
+                "sst_applicable": false
+            },
+            {
+                "code": "drr_stamp",
+                "amount": 0,
+                "sst_applicable": false
+            },
+            {
+                "code": "statutory_declaration_stamp",
+                "amount": 35,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_16n_registration",
+                "amount": 120,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_19g",
+                "amount": 60,
+                "sst_applicable": false
+            },
+            {
+                "code": "poa_noting",
+                "amount": 0,
+                "sst_applicable": false
+            },
+            {
+                "code": "sale_purchase_registration",
+                "amount": 0,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_378_registration",
+                "amount": 200,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_i_filing",
+                "amount": 0,
+                "sst_applicable": false
+            },
+            {
+                "code": "drr_filing",
+                "amount": 0,
+                "sst_applicable": false
+            },
+            {
+                "code": "suk_consent_fee",
+                "amount": 0,
+                "sst_applicable": false
+            },
+            {
+                "code": "ptg_consent_fee",
+                "amount": 0,
+                "sst_applicable": false
+            },
+            {
+                "code": "low_cost_penalty",
+                "amount": 0,
+                "sst_applicable": false
+            },
+            {
+                "code": "swearing",
+                "amount": 33,
+                "sst_applicable": false
+            },
+            {
+                "code": "courier_printing",
+                "amount": 200,
+                "sst_applicable": true
+            },
+            {
+                "code": "transportation",
+                "amount": 200,
+                "sst_applicable": true
+            },
+            {
+                "code": "miscellaneous",
+                "amount": 100,
+                "sst_applicable": true
+            }
+        ]
+    },
+    {
+        "code": "spa-vendor-title",
+        "input": {
+            "loan_amount": 500000,
+            "ccm_search_amount": 75.5,
+            "finance_legal_fee": true,
+            "legal_fee_financed_amount": 5000,
+            "finance_insurance": true,
+            "insurance_financed_amount": 1200
+        },
+        "summary": {
+            "professional_fees": 3000,
+            "disbursements": 1153.5,
+            "sst": 280,
+            "total_payable": 4433.5,
+            "stamp_duty_basis": 505000,
+            "total_financing": 506200
+        },
+        "items": [
+            {
+                "code": "sale_purchase",
+                "amount": 0,
+                "sst_applicable": true
+            },
+            {
+                "code": "suk_consent",
+                "amount": 0,
+                "sst_applicable": true
+            },
+            {
+                "code": "ptg_consent",
+                "amount": 0,
+                "sst_applicable": true
+            },
+            {
+                "code": "discharge",
+                "amount": 400,
+                "sst_applicable": true
+            },
+            {
+                "code": "caveat_withdrawal",
+                "amount": 0,
+                "sst_applicable": true
+            },
+            {
+                "code": "form_378",
+                "amount": 600,
+                "sst_applicable": true
+            },
+            {
+                "code": "form_i",
+                "amount": 0,
+                "sst_applicable": true
+            },
+            {
+                "code": "ckht_1a",
+                "amount": 800,
+                "sst_applicable": true
+            },
+            {
+                "code": "ckht_3_502",
+                "amount": 400,
+                "sst_applicable": true
+            },
+            {
+                "code": "cp600_cp57",
+                "amount": 500,
+                "sst_applicable": true
+            },
+            {
+                "code": "statutory_declaration",
+                "amount": 300,
+                "sst_applicable": true
+            },
+            {
+                "code": "title_search",
+                "amount": 60,
+                "sst_applicable": false
+            },
+            {
+                "code": "bankruptcy_search",
+                "amount": 60,
+                "sst_applicable": false
+            },
+            {
+                "code": "ccm_search",
+                "amount": 75.5,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_16n_stamp",
+                "amount": 10,
+                "sst_applicable": false
+            },
+            {
+                "code": "drr_stamp",
+                "amount": 0,
+                "sst_applicable": false
+            },
+            {
+                "code": "statutory_declaration_stamp",
+                "amount": 35,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_16n_registration",
+                "amount": 120,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_19g",
+                "amount": 60,
+                "sst_applicable": false
+            },
+            {
+                "code": "poa_noting",
+                "amount": 0,
+                "sst_applicable": false
+            },
+            {
+                "code": "sale_purchase_registration",
+                "amount": 0,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_378_registration",
+                "amount": 200,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_i_filing",
+                "amount": 0,
+                "sst_applicable": false
+            },
+            {
+                "code": "drr_filing",
+                "amount": 0,
+                "sst_applicable": false
+            },
+            {
+                "code": "suk_consent_fee",
+                "amount": 0,
+                "sst_applicable": false
+            },
+            {
+                "code": "ptg_consent_fee",
+                "amount": 0,
+                "sst_applicable": false
+            },
+            {
+                "code": "low_cost_penalty",
+                "amount": 0,
+                "sst_applicable": false
+            },
+            {
+                "code": "swearing",
+                "amount": 33,
+                "sst_applicable": false
+            },
+            {
+                "code": "courier_printing",
+                "amount": 200,
+                "sst_applicable": true
+            },
+            {
+                "code": "transportation",
+                "amount": 200,
+                "sst_applicable": true
+            },
+            {
+                "code": "miscellaneous",
+                "amount": 100,
+                "sst_applicable": true
+            }
+        ]
+    },
+    {
+        "code": "spa-vendor-title",
+        "input": {
+            "loan_amount": 1000000,
+            "ccm_search_amount": 75.5,
+            "finance_legal_fee": true,
+            "legal_fee_financed_amount": 5000,
+            "finance_insurance": true,
+            "insurance_financed_amount": 1200
+        },
+        "summary": {
+            "professional_fees": 3000,
+            "disbursements": 1153.5,
+            "sst": 280,
+            "total_payable": 4433.5,
+            "stamp_duty_basis": 1005000,
+            "total_financing": 1006200
+        },
+        "items": [
+            {
+                "code": "sale_purchase",
+                "amount": 0,
+                "sst_applicable": true
+            },
+            {
+                "code": "suk_consent",
+                "amount": 0,
+                "sst_applicable": true
+            },
+            {
+                "code": "ptg_consent",
+                "amount": 0,
+                "sst_applicable": true
+            },
+            {
+                "code": "discharge",
+                "amount": 400,
+                "sst_applicable": true
+            },
+            {
+                "code": "caveat_withdrawal",
+                "amount": 0,
+                "sst_applicable": true
+            },
+            {
+                "code": "form_378",
+                "amount": 600,
+                "sst_applicable": true
+            },
+            {
+                "code": "form_i",
+                "amount": 0,
+                "sst_applicable": true
+            },
+            {
+                "code": "ckht_1a",
+                "amount": 800,
+                "sst_applicable": true
+            },
+            {
+                "code": "ckht_3_502",
+                "amount": 400,
+                "sst_applicable": true
+            },
+            {
+                "code": "cp600_cp57",
+                "amount": 500,
+                "sst_applicable": true
+            },
+            {
+                "code": "statutory_declaration",
+                "amount": 300,
+                "sst_applicable": true
+            },
+            {
+                "code": "title_search",
+                "amount": 60,
+                "sst_applicable": false
+            },
+            {
+                "code": "bankruptcy_search",
+                "amount": 60,
+                "sst_applicable": false
+            },
+            {
+                "code": "ccm_search",
+                "amount": 75.5,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_16n_stamp",
+                "amount": 10,
+                "sst_applicable": false
+            },
+            {
+                "code": "drr_stamp",
+                "amount": 0,
+                "sst_applicable": false
+            },
+            {
+                "code": "statutory_declaration_stamp",
+                "amount": 35,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_16n_registration",
+                "amount": 120,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_19g",
+                "amount": 60,
+                "sst_applicable": false
+            },
+            {
+                "code": "poa_noting",
+                "amount": 0,
+                "sst_applicable": false
+            },
+            {
+                "code": "sale_purchase_registration",
+                "amount": 0,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_378_registration",
+                "amount": 200,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_i_filing",
+                "amount": 0,
+                "sst_applicable": false
+            },
+            {
+                "code": "drr_filing",
+                "amount": 0,
+                "sst_applicable": false
+            },
+            {
+                "code": "suk_consent_fee",
+                "amount": 0,
+                "sst_applicable": false
+            },
+            {
+                "code": "ptg_consent_fee",
+                "amount": 0,
+                "sst_applicable": false
+            },
+            {
+                "code": "low_cost_penalty",
+                "amount": 0,
+                "sst_applicable": false
+            },
+            {
+                "code": "swearing",
+                "amount": 33,
+                "sst_applicable": false
+            },
+            {
+                "code": "courier_printing",
+                "amount": 200,
+                "sst_applicable": true
+            },
+            {
+                "code": "transportation",
+                "amount": 200,
+                "sst_applicable": true
+            },
+            {
+                "code": "miscellaneous",
+                "amount": 100,
+                "sst_applicable": true
+            }
+        ]
+    },
+    {
+        "code": "spa-vendor-title",
+        "input": {
+            "loan_amount": 7500000,
+            "ccm_search_amount": 75.5,
+            "finance_legal_fee": true,
+            "legal_fee_financed_amount": 5000,
+            "finance_insurance": true,
+            "insurance_financed_amount": 1200
+        },
+        "summary": {
+            "professional_fees": 3000,
+            "disbursements": 1153.5,
+            "sst": 280,
+            "total_payable": 4433.5,
+            "stamp_duty_basis": 7505000,
+            "total_financing": 7506200
+        },
+        "items": [
+            {
+                "code": "sale_purchase",
+                "amount": 0,
+                "sst_applicable": true
+            },
+            {
+                "code": "suk_consent",
+                "amount": 0,
+                "sst_applicable": true
+            },
+            {
+                "code": "ptg_consent",
+                "amount": 0,
+                "sst_applicable": true
+            },
+            {
+                "code": "discharge",
+                "amount": 400,
+                "sst_applicable": true
+            },
+            {
+                "code": "caveat_withdrawal",
+                "amount": 0,
+                "sst_applicable": true
+            },
+            {
+                "code": "form_378",
+                "amount": 600,
+                "sst_applicable": true
+            },
+            {
+                "code": "form_i",
+                "amount": 0,
+                "sst_applicable": true
+            },
+            {
+                "code": "ckht_1a",
+                "amount": 800,
+                "sst_applicable": true
+            },
+            {
+                "code": "ckht_3_502",
+                "amount": 400,
+                "sst_applicable": true
+            },
+            {
+                "code": "cp600_cp57",
+                "amount": 500,
+                "sst_applicable": true
+            },
+            {
+                "code": "statutory_declaration",
+                "amount": 300,
+                "sst_applicable": true
+            },
+            {
+                "code": "title_search",
+                "amount": 60,
+                "sst_applicable": false
+            },
+            {
+                "code": "bankruptcy_search",
+                "amount": 60,
+                "sst_applicable": false
+            },
+            {
+                "code": "ccm_search",
+                "amount": 75.5,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_16n_stamp",
+                "amount": 10,
+                "sst_applicable": false
+            },
+            {
+                "code": "drr_stamp",
+                "amount": 0,
+                "sst_applicable": false
+            },
+            {
+                "code": "statutory_declaration_stamp",
+                "amount": 35,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_16n_registration",
+                "amount": 120,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_19g",
+                "amount": 60,
+                "sst_applicable": false
+            },
+            {
+                "code": "poa_noting",
+                "amount": 0,
+                "sst_applicable": false
+            },
+            {
+                "code": "sale_purchase_registration",
+                "amount": 0,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_378_registration",
+                "amount": 200,
+                "sst_applicable": false
+            },
+            {
+                "code": "form_i_filing",
+                "amount": 0,
+                "sst_applicable": false
+            },
+            {
+                "code": "drr_filing",
+                "amount": 0,
+                "sst_applicable": false
+            },
+            {
+                "code": "suk_consent_fee",
+                "amount": 0,
+                "sst_applicable": false
+            },
+            {
+                "code": "ptg_consent_fee",
+                "amount": 0,
+                "sst_applicable": false
+            },
+            {
+                "code": "low_cost_penalty",
+                "amount": 0,
+                "sst_applicable": false
+            },
+            {
+                "code": "swearing",
+                "amount": 33,
+                "sst_applicable": false
+            },
+            {
+                "code": "courier_printing",
+                "amount": 200,
+                "sst_applicable": true
+            },
+            {
+                "code": "transportation",
+                "amount": 200,
+                "sst_applicable": true
+            },
+            {
+                "code": "miscellaneous",
+                "amount": 100,
+                "sst_applicable": true
+            }
+        ]
+    }
+]

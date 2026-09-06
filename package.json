@@ -1,0 +1,77 @@
+{
+  "name": "chai-associates-desktop",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "electron/main.cjs",
+  "scripts": {
+    "dev": "npm run start",
+    "build": "vite build",
+    "start": "npm run build && electron .",
+    "test": "node --test test/*.test.mjs",
+    "pack": "npm run build && electron-builder --dir",
+    "dist": "npm run build && electron-builder"
+  },
+  "dependencies": {
+    "exceljs": "^4.4.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "6.0.7",
+    "electron": "44.2.0",
+    "electron-builder": "26.15.3",
+    "playwright": "^1.58.2",
+    "typescript": "^5.9.3",
+    "vite": "8.2.2",
+    "@lucide/vue": "^1.17.0",
+    "@tailwindcss/vite": "^4.3.3",
+    "@vueuse/core": "^12.8.2",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "reka-ui": "^2.9.8",
+    "tailwind-merge": "^3.2.0",
+    "tailwindcss": "^4.3.3",
+    "tw-animate-css": "^1.2.5",
+    "vue": "3.5.42",
+    "vue-sonner": "^2.0.0"
+  },
+  "build": {
+    "appId": "my.chai.associates.desktop",
+    "productName": "Chai Associates",
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "core/**/*",
+      "seed/**/*"
+    ],
+    "mac": {
+      "target": [
+        "dmg"
+      ],
+      "category": "public.app-category.business",
+      "icon": "build/icon.png"
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "build/icon.png"
+    },
+    "linux": {
+      "target": [
+        "AppImage"
+      ],
+      "category": "Office",
+      "icon": "build/icon.png"
+    },
+    "directories": {
+      "output": "release"
+    }
+  },
+  "overrides": {
+    "exceljs": {
+      "uuid": "11.1.1"
+    }
+  },
+  "description": "Local SQLite desktop workspace for quotations and fee templates",
+  "author": "Chai & Associates"
+}

@@ -1,0 +1,3693 @@
+[
+    {
+        "code": "loan-refinance-title",
+        "name": "Loan (Refinance) - Title",
+        "rules": {
+            "legal_fee": {
+                "first_500k_rate": 0.0125,
+                "next_7m_rate": 0.01,
+                "minimum": 500
+            },
+            "charge_fee": {
+                "rate": 0.1,
+                "minimum": 500,
+                "maximum": 2000
+            },
+            "facility_stamp_duty_rate": 0.005,
+            "sst_rate": 0.08,
+            "input_schema": {
+                "primary_amount_label": "Loan Amount",
+                "supports_financing": true,
+                "supports_ccm_search": true
+            },
+            "export_template": "loan-refinance-title.xlsx",
+            "layout": {
+                "document_title": "PROFORMA",
+                "professional_heading": "PROFESSIONAL FEES:-",
+                "professional_intro": "Services rendered including taking instructions to prepare the following:-",
+                "disbursement_heading": "DISBURSEMENTS:-",
+                "footer_note": "* Kindly be informed that this Proforma is subject to adjustments should there be any variation in the nature, complexity, or scope of the matter."
+            },
+            "professional_fixed": [
+                {
+                    "code": "discharge",
+                    "description": "Discharge of Charge / Deed of Receipt and Reassignment",
+                    "amount": 400,
+                    "sst": true
+                },
+                {
+                    "code": "caveat_legal",
+                    "description": "Entry and Withdrawal of Private Caveat",
+                    "amount": 500,
+                    "sst": true
+                },
+                {
+                    "code": "statutory_declaration_legal",
+                    "description": "Statutory Declaration",
+                    "amount": 300,
+                    "sst": true
+                }
+            ],
+            "disbursements": [
+                {
+                    "code": "title_search",
+                    "description": "Title Search",
+                    "amount": 480
+                },
+                {
+                    "code": "bankruptcy_search",
+                    "description": "Bankruptcy / Winding Up Search",
+                    "amount": 120
+                },
+                {
+                    "code": "facility_duplicate",
+                    "description": "Facilities Agreement (Duplicate)",
+                    "amount": 30
+                },
+                {
+                    "code": "charge_stamp",
+                    "description": "Form 16A and Charge Annexure - Stamp Duty",
+                    "amount": 40
+                },
+                {
+                    "code": "drr_stamp",
+                    "description": "Deed of Receipt and Reassignment - Stamp Duty",
+                    "amount": 40
+                },
+                {
+                    "code": "form_16n_stamp",
+                    "description": "Form 16N - Stamp Duty",
+                    "amount": 20
+                },
+                {
+                    "code": "letter_offer",
+                    "description": "Letter of Offer",
+                    "amount": 80
+                },
+                {
+                    "code": "statutory_declaration_stamp",
+                    "description": "Statutory Declaration - Stamp Duty",
+                    "amount": 50
+                },
+                {
+                    "code": "form_16a_registration",
+                    "description": "Form 16A and Charge Annexure - Registration",
+                    "amount": 240
+                },
+                {
+                    "code": "form_16n_registration",
+                    "description": "Form 16N - Registration",
+                    "amount": 240
+                },
+                {
+                    "code": "form_19b",
+                    "description": "Form 19B (Entry of Private Caveat)",
+                    "amount": 500
+                },
+                {
+                    "code": "form_19g",
+                    "description": "Form 19G / Caveator Consent",
+                    "amount": 120
+                },
+                {
+                    "code": "drr_filing",
+                    "description": "Filing of Deed of Receipt and Reassignment at High Court",
+                    "amount": 0
+                },
+                {
+                    "code": "admin_bank",
+                    "description": "Admin Cost / Bank Charges",
+                    "amount": 250
+                },
+                {
+                    "code": "swearing",
+                    "description": "Swearing",
+                    "amount": 100,
+                    "sst": true
+                },
+                {
+                    "code": "courier",
+                    "description": "Courier Charges",
+                    "amount": 200,
+                    "sst": true
+                },
+                {
+                    "code": "printing",
+                    "description": "Printing Charges",
+                    "amount": 200,
+                    "sst": true
+                },
+                {
+                    "code": "transportation",
+                    "description": "Transportation Charges",
+                    "amount": 200,
+                    "sst": true
+                },
+                {
+                    "code": "miscellaneous",
+                    "description": "Miscellaneous Charges",
+                    "amount": 100,
+                    "sst": true
+                }
+            ]
+        },
+        "catalog_sections": [
+            {
+                "code": "legal_transfer_non_hda",
+                "name": "Legal Fee - Transfer (Non-HDA) / Facility Agreement",
+                "conditions": [
+                    {
+                        "code": "first_500k",
+                        "label": "First RM500,000",
+                        "method": "tiered",
+                        "basis": "consideration_or_loan_amount",
+                        "amount": null,
+                        "rate": 0.0125,
+                        "minimum": 500,
+                        "maximum": null,
+                        "expression": "1.25%; minimum total legal fee RM500."
+                    },
+                    {
+                        "code": "next_7m",
+                        "label": "Next RM7,000,000",
+                        "method": "tiered",
+                        "basis": "consideration_or_loan_amount",
+                        "amount": null,
+                        "rate": 0.01,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": "1% for the portion above RM500,000 up to RM7.5 million."
+                    },
+                    {
+                        "code": "above_7_5m",
+                        "label": "Above RM7,500,000",
+                        "method": "formula",
+                        "basis": "consideration_or_loan_amount",
+                        "amount": null,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": "Negotiable rate, not exceeding 1%."
+                    },
+                    {
+                        "code": "facility_scale",
+                        "label": "Facility agreement scale fee",
+                        "method": "tiered",
+                        "basis": "loan_amount",
+                        "tiers": [
+                            {
+                                "up_to": 500000,
+                                "rate": 0.0125
+                            },
+                            {
+                                "up_to": 7500000,
+                                "rate": 0.01
+                            }
+                        ],
+                        "minimum": 500,
+                        "zero_when_basis_zero": true,
+                        "expression": "First RM500,000 at 1.25%; next RM7,000,000 at 1%. Above RM7.5 million requires a negotiated rate.",
+                        "source_file": "Legal Fee, Stamp Duty & Registration Fee - 25032026.pdf",
+                        "source_page": 1,
+                        "effective_from": "2026-03-25"
+                    }
+                ]
+            },
+            {
+                "code": "legal_transfer_hda",
+                "name": "Legal Fee - Transfer (HDA)",
+                "conditions": [
+                    {
+                        "code": "up_to_50k",
+                        "label": "RM50,000 or less",
+                        "method": "fixed",
+                        "basis": null,
+                        "amount": 500,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "50k_250k",
+                        "label": "Above RM50,000 to RM250,000",
+                        "method": "percentage",
+                        "basis": "scale_fee",
+                        "amount": null,
+                        "rate": 0.75,
+                        "minimum": 500,
+                        "maximum": null,
+                        "expression": "75% of scale fee; minimum RM500."
+                    },
+                    {
+                        "code": "250k_500k",
+                        "label": "Above RM250,000 to RM500,000",
+                        "method": "percentage",
+                        "basis": "scale_fee",
+                        "amount": null,
+                        "rate": 0.7,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "500k_1m",
+                        "label": "Above RM500,000 to RM1,000,000",
+                        "method": "percentage",
+                        "basis": "scale_fee",
+                        "amount": null,
+                        "rate": 0.65,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "above_1m",
+                        "label": "Above RM1,000,000",
+                        "method": "percentage",
+                        "basis": "scale_fee",
+                        "amount": null,
+                        "rate": 0.5,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    }
+                ]
+            },
+            {
+                "code": "charge_documents",
+                "name": "Legal Fee - Charge / Subsidiary Documents",
+                "conditions": [
+                    {
+                        "code": "charge_fee",
+                        "label": "Charge or subsidiary documents",
+                        "method": "percentage",
+                        "basis": "facility_legal_fee",
+                        "amount": null,
+                        "rate": 0.1,
+                        "minimum": 500,
+                        "maximum": 2000,
+                        "expression": "10% of facility agreement legal fee.",
+                        "zero_when_basis_zero": true
+                    }
+                ]
+            },
+            {
+                "code": "discharge_charge",
+                "name": "Legal Fee - Discharge of Charge",
+                "conditions": [
+                    {
+                        "code": "first_title",
+                        "label": "First title or charge",
+                        "method": "fixed",
+                        "basis": null,
+                        "amount": 400,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "additional_title",
+                        "label": "Each additional title or charge",
+                        "method": "per_unit",
+                        "basis": "additional_title_count",
+                        "amount": 100,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    }
+                ]
+            },
+            {
+                "code": "deed_receipt_reassignment",
+                "name": "Legal Fee - Deed of Receipt and Reassignment",
+                "conditions": [
+                    {
+                        "code": "first_property",
+                        "label": "First property",
+                        "method": "fixed",
+                        "basis": null,
+                        "amount": 500,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "additional_property",
+                        "label": "Each additional property",
+                        "method": "per_unit",
+                        "basis": "additional_property_count",
+                        "amount": 100,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "poa_revocation",
+                        "label": "Revocation of Power of Attorney",
+                        "method": "fixed",
+                        "basis": null,
+                        "amount": 200,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    }
+                ]
+            },
+            {
+                "code": "misc_legal_fees",
+                "name": "Miscellaneous Legal Fees",
+                "conditions": [
+                    {
+                        "code": "ckht_1a",
+                        "label": "CKHT 1A",
+                        "method": "formula",
+                        "basis": "individual_count",
+                        "amount": 500,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": "RM500 first individual, RM300 each additional individual."
+                    },
+                    {
+                        "code": "ckht_2a",
+                        "label": "CKHT 2A",
+                        "method": "formula",
+                        "basis": "individual_count",
+                        "amount": 400,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": "RM400 first individual, RM300 each additional individual."
+                    },
+                    {
+                        "code": "ckht_3",
+                        "label": "CKHT 3",
+                        "method": "per_unit",
+                        "basis": "individual_count",
+                        "amount": 200,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "ckht_502",
+                        "label": "CKHT 502",
+                        "method": "per_unit",
+                        "basis": "vendor_count",
+                        "amount": 250,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "cp_600",
+                        "label": "Form CP 600",
+                        "method": "fixed",
+                        "basis": null,
+                        "amount": 500,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "form_378",
+                        "label": "Form 378 including required SD",
+                        "method": "per_unit",
+                        "basis": "application_count",
+                        "amount": 300,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "statutory_declaration",
+                        "label": "Statutory Declaration",
+                        "method": "per_unit",
+                        "basis": "document_count",
+                        "amount": 150,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    }
+                ]
+            },
+            {
+                "code": "transfer_stamp_duty",
+                "name": "Stamp Duty on Transfer",
+                "conditions": [
+                    {
+                        "code": "local_tiered",
+                        "label": "Malaysian / PR / Local Company",
+                        "method": "tiered",
+                        "basis": "property_value",
+                        "amount": null,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": "1% first RM100k; 2% above RM100k to RM500k; 3% above RM500k to RM1m; 4% above RM1m."
+                    },
+                    {
+                        "code": "foreign_residential",
+                        "label": "Foreign - residential property",
+                        "method": "percentage",
+                        "basis": "property_value",
+                        "amount": null,
+                        "rate": 0.08,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "foreign_non_residential",
+                        "label": "Foreign - non-residential property",
+                        "method": "percentage",
+                        "basis": "property_value",
+                        "amount": null,
+                        "rate": 0.04,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    }
+                ]
+            },
+            {
+                "code": "facility_stamp_duty",
+                "name": "Stamp Duty on Facility Agreement",
+                "conditions": [
+                    {
+                        "code": "facility",
+                        "label": "Facility Agreement",
+                        "method": "percentage",
+                        "basis": "loan_plus_financed_legal_fee",
+                        "amount": null,
+                        "rate": 0.005,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": "Exclude MRTA / MLTA."
+                    }
+                ]
+            },
+            {
+                "code": "transfer_registration_johor",
+                "name": "Registration Fee for Transfer (Johor)",
+                "conditions": [
+                    {
+                        "code": "transfer_registration",
+                        "label": "Transfer registration scale",
+                        "method": "tiered",
+                        "basis": "property_value",
+                        "amount": null,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": "Effective 1 April 2026. RM50 up to RM25k; RM80 to RM50k; RM150 to RM100k; RM300 to RM200k; RM600 to RM300k; RM1,500 to RM400k; RM2,000 to RM500k; RM2,500 to RM600k; RM3,000 to RM700k; RM3,500 to RM800k; RM4,000 to RM900k; RM4,500 to RM1m. Above RM1m add RM250 per RM50k for Malaysian or RM400 for foreigner."
+                    }
+                ]
+            },
+            {
+                "code": "other_registration",
+                "name": "Other Registration Fees",
+                "conditions": [
+                    {
+                        "code": "form_16a",
+                        "label": "Entry of Charge (Form 16A)",
+                        "method": "per_unit",
+                        "basis": "charge_count",
+                        "amount": 120,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": "Plus RM60 PA noting fee per PA."
+                    },
+                    {
+                        "code": "form_16n",
+                        "label": "Discharge of Charge (Form 16N)",
+                        "method": "per_unit",
+                        "basis": "charge_count",
+                        "amount": 120,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": "Plus RM60 PA noting fee per PA."
+                    },
+                    {
+                        "code": "form_19b",
+                        "label": "Entry of Private Caveat (Form 19B)",
+                        "method": "per_unit",
+                        "basis": "caveat_count",
+                        "amount": 500,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "form_19g",
+                        "label": "Withdrawal of Private Caveat (Form 19G)",
+                        "method": "per_unit",
+                        "basis": "caveat_count",
+                        "amount": 120,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "other_instrument",
+                        "label": "Other instrument not listed",
+                        "method": "per_unit",
+                        "basis": "instrument_count",
+                        "amount": 120,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    }
+                ]
+            },
+            {
+                "code": "searches",
+                "name": "Searches",
+                "conditions": [
+                    {
+                        "code": "land_current",
+                        "label": "Land Search - current endorsements",
+                        "method": "fixed",
+                        "basis": null,
+                        "amount": 80,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "land_previous",
+                        "label": "Land Search - previous endorsements",
+                        "method": "fixed",
+                        "basis": null,
+                        "amount": 100,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "official_current",
+                        "label": "Official Land Search - current endorsements",
+                        "method": "fixed",
+                        "basis": null,
+                        "amount": 150,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "official_previous",
+                        "label": "Official Land Search - previous endorsements",
+                        "method": "fixed",
+                        "basis": null,
+                        "amount": 180,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    }
+                ]
+            },
+            {
+                "code": "consent",
+                "name": "Consent",
+                "conditions": [
+                    {
+                        "code": "section_124",
+                        "label": "Application under Section 124 NLC",
+                        "method": "fixed",
+                        "basis": null,
+                        "amount": 100,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "low_cost",
+                        "label": "Low Cost / Rumah Murah / Tanah Kurnia",
+                        "method": "per_unit",
+                        "basis": "unit_or_title_count",
+                        "amount": 500,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "bumiputera",
+                        "label": "Lot Bumiputera",
+                        "method": "per_unit",
+                        "basis": "unit_or_title_count",
+                        "amount": 2500,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "commercial",
+                        "label": "Commercial",
+                        "method": "per_unit",
+                        "basis": "unit_or_title_count",
+                        "amount": 3000,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "industrial_bumi",
+                        "label": "Industrial Lot Bumiputera",
+                        "method": "per_unit",
+                        "basis": "unit_or_title_count",
+                        "amount": 8000,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "agricultural",
+                        "label": "Agricultural Land",
+                        "method": "per_unit",
+                        "basis": "acre_or_part",
+                        "amount": 100,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    }
+                ]
+            },
+            {
+                "code": "foreigner_acquisition",
+                "name": "Consent for Acquisition by Foreigner",
+                "conditions": [
+                    {
+                        "code": "application",
+                        "label": "Application for consent to transfer",
+                        "method": "fixed",
+                        "basis": null,
+                        "amount": 2000,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "residential_developer",
+                        "label": "Residential - purchase from developer",
+                        "method": "percentage",
+                        "basis": "purchase_price",
+                        "amount": null,
+                        "rate": 0.03,
+                        "minimum": 30000,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "residential_subsale",
+                        "label": "Residential - subsale",
+                        "method": "formula",
+                        "basis": "higher_purchase_or_jpph_value",
+                        "amount": null,
+                        "rate": 0.03,
+                        "minimum": 30000,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "industrial_purchase",
+                        "label": "Industrial - purchase",
+                        "method": "percentage",
+                        "basis": "purchase_price",
+                        "amount": null,
+                        "rate": 0.04,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    }
+                ]
+            },
+            {
+                "code": "tenancy_legal_fee",
+                "name": "Legal Fee for Tenancy",
+                "conditions": [
+                    {
+                        "code": "up_to_10k",
+                        "label": "Monthly rental RM10,000 or less",
+                        "method": "percentage",
+                        "basis": "monthly_rental",
+                        "amount": null,
+                        "rate": 0.3,
+                        "minimum": 500,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "above_10k",
+                        "label": "Monthly rental above RM10,000",
+                        "method": "formula",
+                        "basis": "monthly_rental",
+                        "amount": null,
+                        "rate": 0.15,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": "Minimum 15%, maximum 25% of monthly rental."
+                    }
+                ]
+            },
+            {
+                "code": "tenancy_stamp_duty",
+                "name": "Stamp Duty on Tenancy",
+                "conditions": [
+                    {
+                        "code": "one_year",
+                        "label": "One year",
+                        "method": "per_unit",
+                        "basis": "each_rm250_annual_rental",
+                        "amount": 1,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "one_to_three",
+                        "label": "More than 1 year, less than 3 years",
+                        "method": "per_unit",
+                        "basis": "each_rm250_annual_rental",
+                        "amount": 3,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "three_to_five",
+                        "label": "More than 3 years, less than 5 years",
+                        "method": "per_unit",
+                        "basis": "each_rm250_annual_rental",
+                        "amount": 5,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "over_five",
+                        "label": "More than 5 years or indefinite",
+                        "method": "per_unit",
+                        "basis": "each_rm250_annual_rental",
+                        "amount": 7,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "code": "loan-subsale-title",
+        "name": "Loan (Subsale) - Title",
+        "rules": {
+            "sst_rate": 0.08,
+            "input_schema": {
+                "primary_amount_label": "Loan Amount",
+                "supports_financing": true,
+                "supports_ccm_search": true
+            },
+            "export_template": "loan-subsale-title.xlsx",
+            "layout": {
+                "document_title": "PROFORMA",
+                "professional_heading": "PROFESSIONAL FEES:-",
+                "professional_intro": "Services rendered including taking instructions to prepare the following:-",
+                "disbursement_heading": "DISBURSEMENTS:-",
+                "footer_note": "* Kindly be informed that this Proforma is subject to adjustments should there be any variation in the nature, complexity, or scope of the matter."
+            },
+            "sections": [
+                {
+                    "code": "professional_fees",
+                    "name": "PROFESSIONAL FEES:-",
+                    "category": "professional",
+                    "items": [
+                        {
+                            "code": "facilities_agreement",
+                            "description": "Facilities Agreement",
+                            "source": "rule",
+                            "hidden": false,
+                            "editable": true,
+                            "rule_ref": "legal_transfer_non_hda/facility_scale",
+                            "input_defaults": [],
+                            "input_bindings": [],
+                            "sst_applicable": true
+                        },
+                        {
+                            "code": "charge",
+                            "description": "Form 16A and Charge Annexure",
+                            "source": "fixed",
+                            "hidden": false,
+                            "editable": true,
+                            "amount": 0,
+                            "sst_applicable": true
+                        },
+                        {
+                            "code": "caveat_legal",
+                            "description": "Entry and Withdrawal of Private Caveat",
+                            "source": "fixed",
+                            "hidden": false,
+                            "editable": true,
+                            "amount": 500,
+                            "sst_applicable": true
+                        },
+                        {
+                            "code": "statutory_declaration_legal",
+                            "description": "Statutory Declaration",
+                            "source": "fixed",
+                            "hidden": false,
+                            "editable": true,
+                            "amount": 300,
+                            "sst_applicable": true
+                        }
+                    ]
+                },
+                {
+                    "code": "searches",
+                    "name": "Searches",
+                    "category": "disbursement",
+                    "items": [
+                        {
+                            "code": "title_search",
+                            "description": "Title Search",
+                            "source": "fixed",
+                            "hidden": false,
+                            "editable": true,
+                            "amount": 480,
+                            "sst_applicable": false
+                        },
+                        {
+                            "code": "bankruptcy_search",
+                            "description": "Bankruptcy / Winding Up Search",
+                            "source": "fixed",
+                            "hidden": false,
+                            "editable": true,
+                            "amount": 120,
+                            "sst_applicable": false
+                        },
+                        {
+                            "code": "ccm_search",
+                            "description": "CCM Search",
+                            "source": "manual",
+                            "hidden": false,
+                            "editable": true,
+                            "input_key": "ccm_search_amount",
+                            "amount": 0,
+                            "sst_applicable": false
+                        }
+                    ]
+                },
+                {
+                    "code": "stamp_duties",
+                    "name": "Stamp Duties (Subject to valuation)",
+                    "category": "disbursement",
+                    "items": [
+                        {
+                            "code": "facility_stamp_duty",
+                            "description": "Facilities Agreement (Original)",
+                            "source": "rule",
+                            "hidden": false,
+                            "editable": true,
+                            "rule_ref": "facility_stamp_duty/facility",
+                            "input_defaults": [],
+                            "input_bindings": [],
+                            "sst_applicable": false
+                        },
+                        {
+                            "code": "facility_duplicate",
+                            "description": "Facilities Agreement (Duplicate)",
+                            "source": "fixed",
+                            "hidden": false,
+                            "editable": true,
+                            "amount": 30,
+                            "sst_applicable": false
+                        },
+                        {
+                            "code": "charge_stamp",
+                            "description": "Form 16A and Charge Annexure",
+                            "source": "fixed",
+                            "hidden": false,
+                            "editable": true,
+                            "amount": 40,
+                            "sst_applicable": false
+                        },
+                        {
+                            "code": "letter_offer",
+                            "description": "Letter of Offer",
+                            "source": "fixed",
+                            "hidden": false,
+                            "editable": true,
+                            "amount": 80,
+                            "sst_applicable": false
+                        },
+                        {
+                            "code": "statutory_declaration_stamp",
+                            "description": "Statutory Declaration",
+                            "source": "fixed",
+                            "hidden": false,
+                            "editable": true,
+                            "amount": 50,
+                            "sst_applicable": false
+                        }
+                    ]
+                },
+                {
+                    "code": "registration_fees",
+                    "name": "Registration Fees (Subject to valuation)",
+                    "category": "disbursement",
+                    "items": [
+                        {
+                            "code": "form_16a_registration",
+                            "description": "Form 16A and Charge Annexure",
+                            "source": "fixed",
+                            "hidden": false,
+                            "editable": true,
+                            "amount": 240,
+                            "sst_applicable": false
+                        },
+                        {
+                            "code": "form_19b",
+                            "description": "Form 19B (Entry of Private Caveat)",
+                            "source": "fixed",
+                            "hidden": false,
+                            "editable": true,
+                            "amount": 500,
+                            "sst_applicable": false
+                        },
+                        {
+                            "code": "form_19g",
+                            "description": "Form 19G (Withdrawal of Private Caveat) / Caveator's Consent",
+                            "source": "fixed",
+                            "hidden": false,
+                            "editable": true,
+                            "amount": 120,
+                            "sst_applicable": false
+                        }
+                    ]
+                },
+                {
+                    "code": "others",
+                    "name": "Others",
+                    "category": "disbursement",
+                    "items": [
+                        {
+                            "code": "admin_bank",
+                            "description": "Admin Cost / Bank Charges",
+                            "source": "fixed",
+                            "hidden": false,
+                            "editable": true,
+                            "amount": 250,
+                            "sst_applicable": false
+                        },
+                        {
+                            "code": "swearing",
+                            "description": "Swearing",
+                            "source": "fixed",
+                            "hidden": false,
+                            "editable": true,
+                            "amount": 100,
+                            "sst_applicable": true
+                        },
+                        {
+                            "code": "courier",
+                            "description": "Courier Charges",
+                            "source": "fixed",
+                            "hidden": false,
+                            "editable": true,
+                            "amount": 200,
+                            "sst_applicable": true
+                        },
+                        {
+                            "code": "printing",
+                            "description": "Printing Charges",
+                            "source": "fixed",
+                            "hidden": false,
+                            "editable": true,
+                            "amount": 200,
+                            "sst_applicable": true
+                        },
+                        {
+                            "code": "transportation",
+                            "description": "Transportation Charges",
+                            "source": "fixed",
+                            "hidden": false,
+                            "editable": true,
+                            "amount": 200,
+                            "sst_applicable": true
+                        },
+                        {
+                            "code": "miscellaneous",
+                            "description": "Miscellaneous Charges",
+                            "source": "fixed",
+                            "hidden": false,
+                            "editable": true,
+                            "amount": 100,
+                            "sst_applicable": true
+                        }
+                    ]
+                }
+            ]
+        },
+        "catalog_sections": [
+            {
+                "code": "legal_transfer_non_hda",
+                "name": "Legal Fee - Transfer (Non-HDA) / Facility Agreement",
+                "conditions": [
+                    {
+                        "code": "first_500k",
+                        "label": "First RM500,000",
+                        "method": "tiered",
+                        "basis": "consideration_or_loan_amount",
+                        "amount": null,
+                        "rate": 0.0125,
+                        "minimum": 500,
+                        "maximum": null,
+                        "expression": "1.25%; minimum total legal fee RM500."
+                    },
+                    {
+                        "code": "next_7m",
+                        "label": "Next RM7,000,000",
+                        "method": "tiered",
+                        "basis": "consideration_or_loan_amount",
+                        "amount": null,
+                        "rate": 0.01,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": "1% for the portion above RM500,000 up to RM7.5 million."
+                    },
+                    {
+                        "code": "above_7_5m",
+                        "label": "Above RM7,500,000",
+                        "method": "formula",
+                        "basis": "consideration_or_loan_amount",
+                        "amount": null,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": "Negotiable rate, not exceeding 1%."
+                    },
+                    {
+                        "code": "facility_scale",
+                        "label": "Facility agreement scale fee",
+                        "method": "tiered",
+                        "basis": "loan_amount",
+                        "tiers": [
+                            {
+                                "up_to": 500000,
+                                "rate": 0.0125
+                            },
+                            {
+                                "up_to": 7500000,
+                                "rate": 0.01
+                            }
+                        ],
+                        "minimum": 500,
+                        "zero_when_basis_zero": true,
+                        "expression": "First RM500,000 at 1.25%; next RM7,000,000 at 1%. Above RM7.5 million requires a negotiated rate.",
+                        "source_file": "Legal Fee, Stamp Duty & Registration Fee - 25032026.pdf",
+                        "source_page": 1,
+                        "effective_from": "2026-03-25"
+                    }
+                ]
+            },
+            {
+                "code": "legal_transfer_hda",
+                "name": "Legal Fee - Transfer (HDA)",
+                "conditions": [
+                    {
+                        "code": "up_to_50k",
+                        "label": "RM50,000 or less",
+                        "method": "fixed",
+                        "basis": null,
+                        "amount": 500,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "50k_250k",
+                        "label": "Above RM50,000 to RM250,000",
+                        "method": "percentage",
+                        "basis": "scale_fee",
+                        "amount": null,
+                        "rate": 0.75,
+                        "minimum": 500,
+                        "maximum": null,
+                        "expression": "75% of scale fee; minimum RM500."
+                    },
+                    {
+                        "code": "250k_500k",
+                        "label": "Above RM250,000 to RM500,000",
+                        "method": "percentage",
+                        "basis": "scale_fee",
+                        "amount": null,
+                        "rate": 0.7,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "500k_1m",
+                        "label": "Above RM500,000 to RM1,000,000",
+                        "method": "percentage",
+                        "basis": "scale_fee",
+                        "amount": null,
+                        "rate": 0.65,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "above_1m",
+                        "label": "Above RM1,000,000",
+                        "method": "percentage",
+                        "basis": "scale_fee",
+                        "amount": null,
+                        "rate": 0.5,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    }
+                ]
+            },
+            {
+                "code": "charge_documents",
+                "name": "Legal Fee - Charge / Subsidiary Documents",
+                "conditions": [
+                    {
+                        "code": "charge_fee",
+                        "label": "Charge or subsidiary documents",
+                        "method": "percentage",
+                        "basis": "facility_legal_fee",
+                        "amount": null,
+                        "rate": 0.1,
+                        "minimum": 500,
+                        "maximum": 2000,
+                        "expression": "10% of facility agreement legal fee.",
+                        "zero_when_basis_zero": true
+                    }
+                ]
+            },
+            {
+                "code": "discharge_charge",
+                "name": "Legal Fee - Discharge of Charge",
+                "conditions": [
+                    {
+                        "code": "first_title",
+                        "label": "First title or charge",
+                        "method": "fixed",
+                        "basis": null,
+                        "amount": 400,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "additional_title",
+                        "label": "Each additional title or charge",
+                        "method": "per_unit",
+                        "basis": "additional_title_count",
+                        "amount": 100,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    }
+                ]
+            },
+            {
+                "code": "deed_receipt_reassignment",
+                "name": "Legal Fee - Deed of Receipt and Reassignment",
+                "conditions": [
+                    {
+                        "code": "first_property",
+                        "label": "First property",
+                        "method": "fixed",
+                        "basis": null,
+                        "amount": 500,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "additional_property",
+                        "label": "Each additional property",
+                        "method": "per_unit",
+                        "basis": "additional_property_count",
+                        "amount": 100,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "poa_revocation",
+                        "label": "Revocation of Power of Attorney",
+                        "method": "fixed",
+                        "basis": null,
+                        "amount": 200,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    }
+                ]
+            },
+            {
+                "code": "misc_legal_fees",
+                "name": "Miscellaneous Legal Fees",
+                "conditions": [
+                    {
+                        "code": "ckht_1a",
+                        "label": "CKHT 1A",
+                        "method": "formula",
+                        "basis": "individual_count",
+                        "amount": 500,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": "RM500 first individual, RM300 each additional individual."
+                    },
+                    {
+                        "code": "ckht_2a",
+                        "label": "CKHT 2A",
+                        "method": "formula",
+                        "basis": "individual_count",
+                        "amount": 400,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": "RM400 first individual, RM300 each additional individual."
+                    },
+                    {
+                        "code": "ckht_3",
+                        "label": "CKHT 3",
+                        "method": "per_unit",
+                        "basis": "individual_count",
+                        "amount": 200,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "ckht_502",
+                        "label": "CKHT 502",
+                        "method": "per_unit",
+                        "basis": "vendor_count",
+                        "amount": 250,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "cp_600",
+                        "label": "Form CP 600",
+                        "method": "fixed",
+                        "basis": null,
+                        "amount": 500,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "form_378",
+                        "label": "Form 378 including required SD",
+                        "method": "per_unit",
+                        "basis": "application_count",
+                        "amount": 300,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "statutory_declaration",
+                        "label": "Statutory Declaration",
+                        "method": "per_unit",
+                        "basis": "document_count",
+                        "amount": 150,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    }
+                ]
+            },
+            {
+                "code": "transfer_stamp_duty",
+                "name": "Stamp Duty on Transfer",
+                "conditions": [
+                    {
+                        "code": "local_tiered",
+                        "label": "Malaysian / PR / Local Company",
+                        "method": "tiered",
+                        "basis": "property_value",
+                        "amount": null,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": "1% first RM100k; 2% above RM100k to RM500k; 3% above RM500k to RM1m; 4% above RM1m."
+                    },
+                    {
+                        "code": "foreign_residential",
+                        "label": "Foreign - residential property",
+                        "method": "percentage",
+                        "basis": "property_value",
+                        "amount": null,
+                        "rate": 0.08,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "foreign_non_residential",
+                        "label": "Foreign - non-residential property",
+                        "method": "percentage",
+                        "basis": "property_value",
+                        "amount": null,
+                        "rate": 0.04,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    }
+                ]
+            },
+            {
+                "code": "facility_stamp_duty",
+                "name": "Stamp Duty on Facility Agreement",
+                "conditions": [
+                    {
+                        "code": "facility",
+                        "label": "Facility Agreement",
+                        "method": "percentage",
+                        "basis": "loan_plus_financed_legal_fee",
+                        "amount": null,
+                        "rate": 0.005,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": "Exclude MRTA / MLTA."
+                    }
+                ]
+            },
+            {
+                "code": "transfer_registration_johor",
+                "name": "Registration Fee for Transfer (Johor)",
+                "conditions": [
+                    {
+                        "code": "transfer_registration",
+                        "label": "Transfer registration scale",
+                        "method": "tiered",
+                        "basis": "property_value",
+                        "amount": null,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": "Effective 1 April 2026. RM50 up to RM25k; RM80 to RM50k; RM150 to RM100k; RM300 to RM200k; RM600 to RM300k; RM1,500 to RM400k; RM2,000 to RM500k; RM2,500 to RM600k; RM3,000 to RM700k; RM3,500 to RM800k; RM4,000 to RM900k; RM4,500 to RM1m. Above RM1m add RM250 per RM50k for Malaysian or RM400 for foreigner."
+                    }
+                ]
+            },
+            {
+                "code": "other_registration",
+                "name": "Other Registration Fees",
+                "conditions": [
+                    {
+                        "code": "form_16a",
+                        "label": "Entry of Charge (Form 16A)",
+                        "method": "per_unit",
+                        "basis": "charge_count",
+                        "amount": 120,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": "Plus RM60 PA noting fee per PA."
+                    },
+                    {
+                        "code": "form_16n",
+                        "label": "Discharge of Charge (Form 16N)",
+                        "method": "per_unit",
+                        "basis": "charge_count",
+                        "amount": 120,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": "Plus RM60 PA noting fee per PA."
+                    },
+                    {
+                        "code": "form_19b",
+                        "label": "Entry of Private Caveat (Form 19B)",
+                        "method": "per_unit",
+                        "basis": "caveat_count",
+                        "amount": 500,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "form_19g",
+                        "label": "Withdrawal of Private Caveat (Form 19G)",
+                        "method": "per_unit",
+                        "basis": "caveat_count",
+                        "amount": 120,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "other_instrument",
+                        "label": "Other instrument not listed",
+                        "method": "per_unit",
+                        "basis": "instrument_count",
+                        "amount": 120,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    }
+                ]
+            },
+            {
+                "code": "searches",
+                "name": "Searches",
+                "conditions": [
+                    {
+                        "code": "land_current",
+                        "label": "Land Search - current endorsements",
+                        "method": "fixed",
+                        "basis": null,
+                        "amount": 80,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "land_previous",
+                        "label": "Land Search - previous endorsements",
+                        "method": "fixed",
+                        "basis": null,
+                        "amount": 100,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "official_current",
+                        "label": "Official Land Search - current endorsements",
+                        "method": "fixed",
+                        "basis": null,
+                        "amount": 150,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "official_previous",
+                        "label": "Official Land Search - previous endorsements",
+                        "method": "fixed",
+                        "basis": null,
+                        "amount": 180,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    }
+                ]
+            },
+            {
+                "code": "consent",
+                "name": "Consent",
+                "conditions": [
+                    {
+                        "code": "section_124",
+                        "label": "Application under Section 124 NLC",
+                        "method": "fixed",
+                        "basis": null,
+                        "amount": 100,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "low_cost",
+                        "label": "Low Cost / Rumah Murah / Tanah Kurnia",
+                        "method": "per_unit",
+                        "basis": "unit_or_title_count",
+                        "amount": 500,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "bumiputera",
+                        "label": "Lot Bumiputera",
+                        "method": "per_unit",
+                        "basis": "unit_or_title_count",
+                        "amount": 2500,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "commercial",
+                        "label": "Commercial",
+                        "method": "per_unit",
+                        "basis": "unit_or_title_count",
+                        "amount": 3000,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "industrial_bumi",
+                        "label": "Industrial Lot Bumiputera",
+                        "method": "per_unit",
+                        "basis": "unit_or_title_count",
+                        "amount": 8000,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "agricultural",
+                        "label": "Agricultural Land",
+                        "method": "per_unit",
+                        "basis": "acre_or_part",
+                        "amount": 100,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    }
+                ]
+            },
+            {
+                "code": "foreigner_acquisition",
+                "name": "Consent for Acquisition by Foreigner",
+                "conditions": [
+                    {
+                        "code": "application",
+                        "label": "Application for consent to transfer",
+                        "method": "fixed",
+                        "basis": null,
+                        "amount": 2000,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "residential_developer",
+                        "label": "Residential - purchase from developer",
+                        "method": "percentage",
+                        "basis": "purchase_price",
+                        "amount": null,
+                        "rate": 0.03,
+                        "minimum": 30000,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "residential_subsale",
+                        "label": "Residential - subsale",
+                        "method": "formula",
+                        "basis": "higher_purchase_or_jpph_value",
+                        "amount": null,
+                        "rate": 0.03,
+                        "minimum": 30000,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "industrial_purchase",
+                        "label": "Industrial - purchase",
+                        "method": "percentage",
+                        "basis": "purchase_price",
+                        "amount": null,
+                        "rate": 0.04,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    }
+                ]
+            },
+            {
+                "code": "tenancy_legal_fee",
+                "name": "Legal Fee for Tenancy",
+                "conditions": [
+                    {
+                        "code": "up_to_10k",
+                        "label": "Monthly rental RM10,000 or less",
+                        "method": "percentage",
+                        "basis": "monthly_rental",
+                        "amount": null,
+                        "rate": 0.3,
+                        "minimum": 500,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "above_10k",
+                        "label": "Monthly rental above RM10,000",
+                        "method": "formula",
+                        "basis": "monthly_rental",
+                        "amount": null,
+                        "rate": 0.15,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": "Minimum 15%, maximum 25% of monthly rental."
+                    }
+                ]
+            },
+            {
+                "code": "tenancy_stamp_duty",
+                "name": "Stamp Duty on Tenancy",
+                "conditions": [
+                    {
+                        "code": "one_year",
+                        "label": "One year",
+                        "method": "per_unit",
+                        "basis": "each_rm250_annual_rental",
+                        "amount": 1,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "one_to_three",
+                        "label": "More than 1 year, less than 3 years",
+                        "method": "per_unit",
+                        "basis": "each_rm250_annual_rental",
+                        "amount": 3,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "three_to_five",
+                        "label": "More than 3 years, less than 5 years",
+                        "method": "per_unit",
+                        "basis": "each_rm250_annual_rental",
+                        "amount": 5,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "over_five",
+                        "label": "More than 5 years or indefinite",
+                        "method": "per_unit",
+                        "basis": "each_rm250_annual_rental",
+                        "amount": 7,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "code": "spa-purchaser-title",
+        "name": "SPA (Purchaser) - Title",
+        "rules": {
+            "sst_rate": 0.08,
+            "input_schema": {
+                "primary_amount_label": "Property Value",
+                "supports_financing": false,
+                "supports_ccm_search": true
+            },
+            "export_template": "spa-purchaser-title.xlsx",
+            "layout": {
+                "document_title": "PROFORMA",
+                "professional_heading": "PROFESSIONAL FEES:-",
+                "professional_intro": "Services rendered including taking instructions to prepare the following:-",
+                "disbursement_heading": "DISBURSEMENTS:-",
+                "footer_note": "* Kindly be informed that this Proforma is subject to adjustments should there be any variation in the nature, complexity, or scope of the matter."
+            },
+            "sections": [
+                {
+                    "code": "professional_fees",
+                    "name": "PROFESSIONAL FEES:-",
+                    "category": "professional",
+                    "items": [
+                        {
+                            "code": "sale_purchase_transfer",
+                            "description": "Sale and Purchase Agreement & Transfer",
+                            "source": "rule",
+                            "hidden": false,
+                            "editable": true,
+                            "rule_ref": "legal_transfer_non_hda/facility_scale",
+                            "input_defaults": [],
+                            "input_bindings": [],
+                            "sst_applicable": true
+                        },
+                        {
+                            "code": "caveat_legal",
+                            "description": "Entry and Withdrawal of Private Caveat",
+                            "source": "fixed",
+                            "hidden": false,
+                            "editable": true,
+                            "amount": 500,
+                            "sst_applicable": true
+                        },
+                        {
+                            "code": "form_i",
+                            "description": "Form I",
+                            "source": "fixed",
+                            "hidden": false,
+                            "editable": true,
+                            "amount": 100,
+                            "sst_applicable": true
+                        },
+                        {
+                            "code": "ckht_2a",
+                            "description": "CKHT 2A",
+                            "source": "fixed",
+                            "hidden": false,
+                            "editable": true,
+                            "amount": 0,
+                            "sst_applicable": true
+                        },
+                        {
+                            "code": "cp_600_cp57",
+                            "description": "CP 600 / CP57",
+                            "source": "fixed",
+                            "hidden": false,
+                            "editable": true,
+                            "amount": 0,
+                            "sst_applicable": true
+                        }
+                    ]
+                },
+                {
+                    "code": "searches",
+                    "name": "Searches",
+                    "category": "disbursement",
+                    "items": [
+                        {
+                            "code": "title_search",
+                            "description": "Title Search",
+                            "source": "fixed",
+                            "hidden": false,
+                            "editable": true,
+                            "amount": 400,
+                            "sst_applicable": false
+                        },
+                        {
+                            "code": "bankruptcy_search",
+                            "description": "Bankruptcy / Winding Up Search",
+                            "source": "fixed",
+                            "hidden": false,
+                            "editable": true,
+                            "amount": 120,
+                            "sst_applicable": false
+                        },
+                        {
+                            "code": "ccm_search",
+                            "description": "CCM Search",
+                            "source": "manual",
+                            "hidden": false,
+                            "editable": true,
+                            "input_key": "ccm_search_amount",
+                            "amount": 0,
+                            "sst_applicable": false
+                        }
+                    ]
+                },
+                {
+                    "code": "stamp_duties",
+                    "name": "Stamp Duties (Subject to valuation)",
+                    "category": "disbursement",
+                    "items": [
+                        {
+                            "code": "spa_stamp",
+                            "description": "Sale and Purchase Agreement",
+                            "source": "fixed",
+                            "hidden": false,
+                            "editable": true,
+                            "amount": 50,
+                            "sst_applicable": false
+                        },
+                        {
+                            "code": "form_14a_stamp",
+                            "description": "Form 14A (Transfer)",
+                            "source": "fixed",
+                            "hidden": false,
+                            "editable": true,
+                            "amount": 0,
+                            "sst_applicable": false
+                        }
+                    ]
+                },
+                {
+                    "code": "registration_fees",
+                    "name": "Registration Fees (Subject to valuation)",
+                    "category": "disbursement",
+                    "items": [
+                        {
+                            "code": "form_14a_registration",
+                            "description": "Form 14A (Transfer)",
+                            "source": "fixed",
+                            "hidden": false,
+                            "editable": true,
+                            "amount": 0,
+                            "sst_applicable": false
+                        },
+                        {
+                            "code": "form_19b",
+                            "description": "Form 19B (Entry of Private Caveat)",
+                            "source": "fixed",
+                            "hidden": false,
+                            "editable": true,
+                            "amount": 500,
+                            "sst_applicable": false
+                        },
+                        {
+                            "code": "form_19g",
+                            "description": "Form 19G (Withdrawal of Private Caveat)",
+                            "source": "fixed",
+                            "hidden": false,
+                            "editable": true,
+                            "amount": 120,
+                            "sst_applicable": false
+                        }
+                    ]
+                },
+                {
+                    "code": "others",
+                    "name": "Others",
+                    "category": "disbursement",
+                    "items": [
+                        {
+                            "code": "form_i_filing",
+                            "description": "Filing Fee for Form I",
+                            "source": "fixed",
+                            "hidden": false,
+                            "editable": true,
+                            "amount": 50,
+                            "sst_applicable": false
+                        },
+                        {
+                            "code": "swearing",
+                            "description": "Swearing",
+                            "source": "fixed",
+                            "hidden": false,
+                            "editable": true,
+                            "amount": 100,
+                            "sst_applicable": true
+                        },
+                        {
+                            "code": "courier",
+                            "description": "Courier Charges",
+                            "source": "fixed",
+                            "hidden": false,
+                            "editable": true,
+                            "amount": 200,
+                            "sst_applicable": true
+                        },
+                        {
+                            "code": "printing",
+                            "description": "Printing Charges",
+                            "source": "fixed",
+                            "hidden": false,
+                            "editable": true,
+                            "amount": 200,
+                            "sst_applicable": true
+                        },
+                        {
+                            "code": "transportation",
+                            "description": "Transportation Charges",
+                            "source": "fixed",
+                            "hidden": false,
+                            "editable": true,
+                            "amount": 200,
+                            "sst_applicable": true
+                        },
+                        {
+                            "code": "miscellaneous",
+                            "description": "Miscellaneous Charges",
+                            "source": "fixed",
+                            "hidden": false,
+                            "editable": true,
+                            "amount": 100,
+                            "sst_applicable": true
+                        }
+                    ]
+                }
+            ]
+        },
+        "catalog_sections": [
+            {
+                "code": "legal_transfer_non_hda",
+                "name": "Legal Fee - Transfer (Non-HDA) / Facility Agreement",
+                "conditions": [
+                    {
+                        "code": "first_500k",
+                        "label": "First RM500,000",
+                        "method": "tiered",
+                        "basis": "consideration_or_loan_amount",
+                        "amount": null,
+                        "rate": 0.0125,
+                        "minimum": 500,
+                        "maximum": null,
+                        "expression": "1.25%; minimum total legal fee RM500."
+                    },
+                    {
+                        "code": "next_7m",
+                        "label": "Next RM7,000,000",
+                        "method": "tiered",
+                        "basis": "consideration_or_loan_amount",
+                        "amount": null,
+                        "rate": 0.01,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": "1% for the portion above RM500,000 up to RM7.5 million."
+                    },
+                    {
+                        "code": "above_7_5m",
+                        "label": "Above RM7,500,000",
+                        "method": "formula",
+                        "basis": "consideration_or_loan_amount",
+                        "amount": null,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": "Negotiable rate, not exceeding 1%."
+                    },
+                    {
+                        "code": "facility_scale",
+                        "label": "Facility agreement scale fee",
+                        "method": "tiered",
+                        "basis": "loan_amount",
+                        "tiers": [
+                            {
+                                "up_to": 500000,
+                                "rate": 0.0125
+                            },
+                            {
+                                "up_to": 7500000,
+                                "rate": 0.01
+                            }
+                        ],
+                        "minimum": 500,
+                        "zero_when_basis_zero": true,
+                        "expression": "First RM500,000 at 1.25%; next RM7,000,000 at 1%. Above RM7.5 million requires a negotiated rate.",
+                        "source_file": "Legal Fee, Stamp Duty & Registration Fee - 25032026.pdf",
+                        "source_page": 1,
+                        "effective_from": "2026-03-25"
+                    }
+                ]
+            },
+            {
+                "code": "legal_transfer_hda",
+                "name": "Legal Fee - Transfer (HDA)",
+                "conditions": [
+                    {
+                        "code": "up_to_50k",
+                        "label": "RM50,000 or less",
+                        "method": "fixed",
+                        "basis": null,
+                        "amount": 500,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "50k_250k",
+                        "label": "Above RM50,000 to RM250,000",
+                        "method": "percentage",
+                        "basis": "scale_fee",
+                        "amount": null,
+                        "rate": 0.75,
+                        "minimum": 500,
+                        "maximum": null,
+                        "expression": "75% of scale fee; minimum RM500."
+                    },
+                    {
+                        "code": "250k_500k",
+                        "label": "Above RM250,000 to RM500,000",
+                        "method": "percentage",
+                        "basis": "scale_fee",
+                        "amount": null,
+                        "rate": 0.7,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "500k_1m",
+                        "label": "Above RM500,000 to RM1,000,000",
+                        "method": "percentage",
+                        "basis": "scale_fee",
+                        "amount": null,
+                        "rate": 0.65,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "above_1m",
+                        "label": "Above RM1,000,000",
+                        "method": "percentage",
+                        "basis": "scale_fee",
+                        "amount": null,
+                        "rate": 0.5,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    }
+                ]
+            },
+            {
+                "code": "charge_documents",
+                "name": "Legal Fee - Charge / Subsidiary Documents",
+                "conditions": [
+                    {
+                        "code": "charge_fee",
+                        "label": "Charge or subsidiary documents",
+                        "method": "percentage",
+                        "basis": "facility_legal_fee",
+                        "amount": null,
+                        "rate": 0.1,
+                        "minimum": 500,
+                        "maximum": 2000,
+                        "expression": "10% of facility agreement legal fee.",
+                        "zero_when_basis_zero": true
+                    }
+                ]
+            },
+            {
+                "code": "discharge_charge",
+                "name": "Legal Fee - Discharge of Charge",
+                "conditions": [
+                    {
+                        "code": "first_title",
+                        "label": "First title or charge",
+                        "method": "fixed",
+                        "basis": null,
+                        "amount": 400,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "additional_title",
+                        "label": "Each additional title or charge",
+                        "method": "per_unit",
+                        "basis": "additional_title_count",
+                        "amount": 100,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    }
+                ]
+            },
+            {
+                "code": "deed_receipt_reassignment",
+                "name": "Legal Fee - Deed of Receipt and Reassignment",
+                "conditions": [
+                    {
+                        "code": "first_property",
+                        "label": "First property",
+                        "method": "fixed",
+                        "basis": null,
+                        "amount": 500,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "additional_property",
+                        "label": "Each additional property",
+                        "method": "per_unit",
+                        "basis": "additional_property_count",
+                        "amount": 100,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "poa_revocation",
+                        "label": "Revocation of Power of Attorney",
+                        "method": "fixed",
+                        "basis": null,
+                        "amount": 200,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    }
+                ]
+            },
+            {
+                "code": "misc_legal_fees",
+                "name": "Miscellaneous Legal Fees",
+                "conditions": [
+                    {
+                        "code": "ckht_1a",
+                        "label": "CKHT 1A",
+                        "method": "formula",
+                        "basis": "individual_count",
+                        "amount": 500,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": "RM500 first individual, RM300 each additional individual."
+                    },
+                    {
+                        "code": "ckht_2a",
+                        "label": "CKHT 2A",
+                        "method": "formula",
+                        "basis": "individual_count",
+                        "amount": 400,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": "RM400 first individual, RM300 each additional individual."
+                    },
+                    {
+                        "code": "ckht_3",
+                        "label": "CKHT 3",
+                        "method": "per_unit",
+                        "basis": "individual_count",
+                        "amount": 200,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "ckht_502",
+                        "label": "CKHT 502",
+                        "method": "per_unit",
+                        "basis": "vendor_count",
+                        "amount": 250,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "cp_600",
+                        "label": "Form CP 600",
+                        "method": "fixed",
+                        "basis": null,
+                        "amount": 500,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "form_378",
+                        "label": "Form 378 including required SD",
+                        "method": "per_unit",
+                        "basis": "application_count",
+                        "amount": 300,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "statutory_declaration",
+                        "label": "Statutory Declaration",
+                        "method": "per_unit",
+                        "basis": "document_count",
+                        "amount": 150,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    }
+                ]
+            },
+            {
+                "code": "transfer_stamp_duty",
+                "name": "Stamp Duty on Transfer",
+                "conditions": [
+                    {
+                        "code": "local_tiered",
+                        "label": "Malaysian / PR / Local Company",
+                        "method": "tiered",
+                        "basis": "property_value",
+                        "amount": null,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": "1% first RM100k; 2% above RM100k to RM500k; 3% above RM500k to RM1m; 4% above RM1m."
+                    },
+                    {
+                        "code": "foreign_residential",
+                        "label": "Foreign - residential property",
+                        "method": "percentage",
+                        "basis": "property_value",
+                        "amount": null,
+                        "rate": 0.08,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "foreign_non_residential",
+                        "label": "Foreign - non-residential property",
+                        "method": "percentage",
+                        "basis": "property_value",
+                        "amount": null,
+                        "rate": 0.04,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    }
+                ]
+            },
+            {
+                "code": "facility_stamp_duty",
+                "name": "Stamp Duty on Facility Agreement",
+                "conditions": [
+                    {
+                        "code": "facility",
+                        "label": "Facility Agreement",
+                        "method": "percentage",
+                        "basis": "loan_plus_financed_legal_fee",
+                        "amount": null,
+                        "rate": 0.005,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": "Exclude MRTA / MLTA."
+                    }
+                ]
+            },
+            {
+                "code": "transfer_registration_johor",
+                "name": "Registration Fee for Transfer (Johor)",
+                "conditions": [
+                    {
+                        "code": "transfer_registration",
+                        "label": "Transfer registration scale",
+                        "method": "tiered",
+                        "basis": "property_value",
+                        "amount": null,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": "Effective 1 April 2026. RM50 up to RM25k; RM80 to RM50k; RM150 to RM100k; RM300 to RM200k; RM600 to RM300k; RM1,500 to RM400k; RM2,000 to RM500k; RM2,500 to RM600k; RM3,000 to RM700k; RM3,500 to RM800k; RM4,000 to RM900k; RM4,500 to RM1m. Above RM1m add RM250 per RM50k for Malaysian or RM400 for foreigner."
+                    }
+                ]
+            },
+            {
+                "code": "other_registration",
+                "name": "Other Registration Fees",
+                "conditions": [
+                    {
+                        "code": "form_16a",
+                        "label": "Entry of Charge (Form 16A)",
+                        "method": "per_unit",
+                        "basis": "charge_count",
+                        "amount": 120,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": "Plus RM60 PA noting fee per PA."
+                    },
+                    {
+                        "code": "form_16n",
+                        "label": "Discharge of Charge (Form 16N)",
+                        "method": "per_unit",
+                        "basis": "charge_count",
+                        "amount": 120,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": "Plus RM60 PA noting fee per PA."
+                    },
+                    {
+                        "code": "form_19b",
+                        "label": "Entry of Private Caveat (Form 19B)",
+                        "method": "per_unit",
+                        "basis": "caveat_count",
+                        "amount": 500,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "form_19g",
+                        "label": "Withdrawal of Private Caveat (Form 19G)",
+                        "method": "per_unit",
+                        "basis": "caveat_count",
+                        "amount": 120,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "other_instrument",
+                        "label": "Other instrument not listed",
+                        "method": "per_unit",
+                        "basis": "instrument_count",
+                        "amount": 120,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    }
+                ]
+            },
+            {
+                "code": "searches",
+                "name": "Searches",
+                "conditions": [
+                    {
+                        "code": "land_current",
+                        "label": "Land Search - current endorsements",
+                        "method": "fixed",
+                        "basis": null,
+                        "amount": 80,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "land_previous",
+                        "label": "Land Search - previous endorsements",
+                        "method": "fixed",
+                        "basis": null,
+                        "amount": 100,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "official_current",
+                        "label": "Official Land Search - current endorsements",
+                        "method": "fixed",
+                        "basis": null,
+                        "amount": 150,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "official_previous",
+                        "label": "Official Land Search - previous endorsements",
+                        "method": "fixed",
+                        "basis": null,
+                        "amount": 180,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    }
+                ]
+            },
+            {
+                "code": "consent",
+                "name": "Consent",
+                "conditions": [
+                    {
+                        "code": "section_124",
+                        "label": "Application under Section 124 NLC",
+                        "method": "fixed",
+                        "basis": null,
+                        "amount": 100,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "low_cost",
+                        "label": "Low Cost / Rumah Murah / Tanah Kurnia",
+                        "method": "per_unit",
+                        "basis": "unit_or_title_count",
+                        "amount": 500,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "bumiputera",
+                        "label": "Lot Bumiputera",
+                        "method": "per_unit",
+                        "basis": "unit_or_title_count",
+                        "amount": 2500,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "commercial",
+                        "label": "Commercial",
+                        "method": "per_unit",
+                        "basis": "unit_or_title_count",
+                        "amount": 3000,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "industrial_bumi",
+                        "label": "Industrial Lot Bumiputera",
+                        "method": "per_unit",
+                        "basis": "unit_or_title_count",
+                        "amount": 8000,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "agricultural",
+                        "label": "Agricultural Land",
+                        "method": "per_unit",
+                        "basis": "acre_or_part",
+                        "amount": 100,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    }
+                ]
+            },
+            {
+                "code": "foreigner_acquisition",
+                "name": "Consent for Acquisition by Foreigner",
+                "conditions": [
+                    {
+                        "code": "application",
+                        "label": "Application for consent to transfer",
+                        "method": "fixed",
+                        "basis": null,
+                        "amount": 2000,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "residential_developer",
+                        "label": "Residential - purchase from developer",
+                        "method": "percentage",
+                        "basis": "purchase_price",
+                        "amount": null,
+                        "rate": 0.03,
+                        "minimum": 30000,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "residential_subsale",
+                        "label": "Residential - subsale",
+                        "method": "formula",
+                        "basis": "higher_purchase_or_jpph_value",
+                        "amount": null,
+                        "rate": 0.03,
+                        "minimum": 30000,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "industrial_purchase",
+                        "label": "Industrial - purchase",
+                        "method": "percentage",
+                        "basis": "purchase_price",
+                        "amount": null,
+                        "rate": 0.04,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    }
+                ]
+            },
+            {
+                "code": "tenancy_legal_fee",
+                "name": "Legal Fee for Tenancy",
+                "conditions": [
+                    {
+                        "code": "up_to_10k",
+                        "label": "Monthly rental RM10,000 or less",
+                        "method": "percentage",
+                        "basis": "monthly_rental",
+                        "amount": null,
+                        "rate": 0.3,
+                        "minimum": 500,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "above_10k",
+                        "label": "Monthly rental above RM10,000",
+                        "method": "formula",
+                        "basis": "monthly_rental",
+                        "amount": null,
+                        "rate": 0.15,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": "Minimum 15%, maximum 25% of monthly rental."
+                    }
+                ]
+            },
+            {
+                "code": "tenancy_stamp_duty",
+                "name": "Stamp Duty on Tenancy",
+                "conditions": [
+                    {
+                        "code": "one_year",
+                        "label": "One year",
+                        "method": "per_unit",
+                        "basis": "each_rm250_annual_rental",
+                        "amount": 1,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "one_to_three",
+                        "label": "More than 1 year, less than 3 years",
+                        "method": "per_unit",
+                        "basis": "each_rm250_annual_rental",
+                        "amount": 3,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "three_to_five",
+                        "label": "More than 3 years, less than 5 years",
+                        "method": "per_unit",
+                        "basis": "each_rm250_annual_rental",
+                        "amount": 5,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "over_five",
+                        "label": "More than 5 years or indefinite",
+                        "method": "per_unit",
+                        "basis": "each_rm250_annual_rental",
+                        "amount": 7,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "code": "spa-vendor-title",
+        "name": "SPA (Vendor) - Title",
+        "rules": {
+            "sst_rate": 0.08,
+            "input_schema": {
+                "primary_amount_label": "Property Value",
+                "supports_financing": false,
+                "supports_ccm_search": true
+            },
+            "export_template": "spa-vendor.xlsx",
+            "layout": {
+                "document_title": "PROFORMA",
+                "professional_heading": "PROFESSIONAL FEES:-",
+                "professional_intro": "Services rendered including taking instructions to prepare the following:-",
+                "disbursement_heading": "DISBURSEMENTS:-",
+                "footer_note": "* Subject to changes",
+                "company_lines": [
+                    "CHAI & ASSOCIATES (formerly LIM & CHOE)",
+                    "Advocates & Solicitors",
+                    "No. 239, Jalan Impian Emas 22, Taman Impian Emas, 81300 Skudai, Johor.",
+                    "Tel : 07 – 555 0350        Fax : 07 – 558 9698        Email: general@chai.com.my"
+                ],
+                "payment_lines": [
+                    "Payment may be made by:-",
+                    "1. Cheque / Bank Draft payable to \"CHAI & ASSOCIATES\"",
+                    "2. Bank transfer to our account as per below (Kindly forward to us the proof of transaction after payment):-",
+                    "       Account Number : 07000400067                               Account Holder : CHAI & ASSOCIATES",
+                    "       Bank : Hong Leong Bank (Malaysia) Berhad (Taman Pelangi Branch, Johor Bahru, Johor)",
+                    "                  No. 173 & 175, Jalan Sri Pelangi, Taman Pelangi, 80400 Johor Bahru, Johor",
+                    "       Swift Code : HLBBMYKL"
+                ]
+            },
+            "sections": [
+                {
+                    "code": "professional_fees",
+                    "name": "PROFESSIONAL FEES:-",
+                    "category": "professional",
+                    "items": [
+                        {
+                            "code": "sale_purchase",
+                            "description": "Sale and Purchase Agreement",
+                            "source": "fixed",
+                            "hidden": false,
+                            "editable": true,
+                            "amount": 0,
+                            "sst_applicable": true
+                        },
+                        {
+                            "code": "suk_consent",
+                            "description": "Application for SUK Consent",
+                            "source": "fixed",
+                            "hidden": false,
+                            "editable": true,
+                            "amount": 0,
+                            "sst_applicable": true
+                        },
+                        {
+                            "code": "ptg_consent",
+                            "description": "Application for PTG Consent",
+                            "source": "fixed",
+                            "hidden": false,
+                            "editable": true,
+                            "amount": 0,
+                            "sst_applicable": true
+                        },
+                        {
+                            "code": "discharge",
+                            "description": "Discharge of Charge / Deed of Receipt and Reassignment",
+                            "source": "fixed",
+                            "hidden": false,
+                            "editable": true,
+                            "amount": 400,
+                            "sst_applicable": true
+                        },
+                        {
+                            "code": "caveat_withdrawal",
+                            "description": "Withdrawal of Private Caveat",
+                            "source": "fixed",
+                            "hidden": false,
+                            "editable": true,
+                            "amount": 0,
+                            "sst_applicable": true
+                        },
+                        {
+                            "code": "form_378",
+                            "description": "Form 378 (with Statutory Declaration)",
+                            "source": "fixed",
+                            "hidden": false,
+                            "editable": true,
+                            "amount": 600,
+                            "sst_applicable": true
+                        },
+                        {
+                            "code": "form_i",
+                            "description": "Form I",
+                            "source": "fixed",
+                            "hidden": false,
+                            "editable": true,
+                            "amount": 0,
+                            "sst_applicable": true
+                        },
+                        {
+                            "code": "ckht_1a",
+                            "description": "CKHT 1A",
+                            "source": "fixed",
+                            "hidden": false,
+                            "editable": true,
+                            "amount": 800,
+                            "sst_applicable": true
+                        },
+                        {
+                            "code": "ckht_3_502",
+                            "description": "CKHT 3 / CKHT 502",
+                            "source": "fixed",
+                            "hidden": false,
+                            "editable": true,
+                            "amount": 400,
+                            "sst_applicable": true
+                        },
+                        {
+                            "code": "cp600_cp57",
+                            "description": "CP600 / CP57",
+                            "source": "fixed",
+                            "hidden": false,
+                            "editable": true,
+                            "amount": 500,
+                            "sst_applicable": true
+                        },
+                        {
+                            "code": "statutory_declaration",
+                            "description": "Statutory Declaration",
+                            "source": "fixed",
+                            "hidden": false,
+                            "editable": true,
+                            "amount": 300,
+                            "sst_applicable": true
+                        }
+                    ]
+                },
+                {
+                    "code": "searches",
+                    "name": "Searches",
+                    "category": "disbursement",
+                    "items": [
+                        {
+                            "code": "title_search",
+                            "description": "Title Search",
+                            "source": "fixed",
+                            "hidden": false,
+                            "editable": true,
+                            "amount": 60,
+                            "sst_applicable": false
+                        },
+                        {
+                            "code": "bankruptcy_search",
+                            "description": "Bankruptcy / Winding Up Search",
+                            "source": "fixed",
+                            "hidden": false,
+                            "editable": true,
+                            "amount": 60,
+                            "sst_applicable": false
+                        },
+                        {
+                            "code": "ccm_search",
+                            "description": "CCM Search",
+                            "source": "manual",
+                            "hidden": false,
+                            "editable": true,
+                            "input_key": "ccm_search_amount",
+                            "amount": 0,
+                            "sst_applicable": false
+                        }
+                    ]
+                },
+                {
+                    "code": "stamp_duties",
+                    "name": "Stamp Duties (Subject to valuation)",
+                    "category": "disbursement",
+                    "items": [
+                        {
+                            "code": "form_16n_stamp",
+                            "description": "Form 16N (Discharge of Charge)",
+                            "source": "fixed",
+                            "hidden": false,
+                            "editable": true,
+                            "amount": 10,
+                            "sst_applicable": false
+                        },
+                        {
+                            "code": "drr_stamp",
+                            "description": "Deed of Receipt and Reassignment",
+                            "source": "fixed",
+                            "hidden": false,
+                            "editable": true,
+                            "amount": 0,
+                            "sst_applicable": false
+                        },
+                        {
+                            "code": "statutory_declaration_stamp",
+                            "description": "Statutory Declaration",
+                            "source": "fixed",
+                            "hidden": false,
+                            "editable": true,
+                            "amount": 35,
+                            "sst_applicable": false
+                        }
+                    ]
+                },
+                {
+                    "code": "registration_fees",
+                    "name": "Registration Fees (Subject to valuation)",
+                    "category": "disbursement",
+                    "items": [
+                        {
+                            "code": "form_16n_registration",
+                            "description": "Form 16N (Discharge of Charge)",
+                            "source": "fixed",
+                            "hidden": false,
+                            "editable": true,
+                            "amount": 120,
+                            "sst_applicable": false
+                        },
+                        {
+                            "code": "form_19g",
+                            "description": "Form 19G (Withdrawal of Private Caveat)",
+                            "source": "fixed",
+                            "hidden": false,
+                            "editable": true,
+                            "amount": 60,
+                            "sst_applicable": false
+                        },
+                        {
+                            "code": "poa_noting",
+                            "description": "Power of Attorney (Noting Fee)",
+                            "source": "fixed",
+                            "hidden": false,
+                            "editable": true,
+                            "amount": 0,
+                            "sst_applicable": false
+                        },
+                        {
+                            "code": "sale_purchase_registration",
+                            "description": "Sale and Purchase Agreement",
+                            "source": "fixed",
+                            "hidden": false,
+                            "editable": true,
+                            "amount": 0,
+                            "sst_applicable": false
+                        },
+                        {
+                            "code": "form_378_registration",
+                            "description": "Borang 378",
+                            "source": "fixed",
+                            "hidden": false,
+                            "editable": true,
+                            "amount": 200,
+                            "sst_applicable": false
+                        }
+                    ]
+                },
+                {
+                    "code": "others",
+                    "name": "Others",
+                    "category": "disbursement",
+                    "items": [
+                        {
+                            "code": "form_i_filing",
+                            "description": "Filing Fee for Form I",
+                            "source": "fixed",
+                            "hidden": false,
+                            "editable": true,
+                            "amount": 0,
+                            "sst_applicable": false
+                        },
+                        {
+                            "code": "drr_filing",
+                            "description": "Filing Fee for Deed of Receipt and Reassignment",
+                            "source": "fixed",
+                            "hidden": false,
+                            "editable": true,
+                            "amount": 0,
+                            "sst_applicable": false
+                        },
+                        {
+                            "code": "suk_consent_fee",
+                            "description": "Application Fee for SUK Consent",
+                            "source": "fixed",
+                            "hidden": false,
+                            "editable": true,
+                            "amount": 0,
+                            "sst_applicable": false
+                        },
+                        {
+                            "code": "ptg_consent_fee",
+                            "description": "Application Fee for PTG Consent",
+                            "source": "fixed",
+                            "hidden": false,
+                            "editable": true,
+                            "amount": 0,
+                            "sst_applicable": false
+                        },
+                        {
+                            "code": "low_cost_penalty",
+                            "description": "Low Cost Penalty",
+                            "source": "fixed",
+                            "hidden": false,
+                            "editable": true,
+                            "amount": 0,
+                            "sst_applicable": false
+                        },
+                        {
+                            "code": "swearing",
+                            "description": "Swearing",
+                            "source": "fixed",
+                            "hidden": false,
+                            "editable": true,
+                            "amount": 33,
+                            "sst_applicable": false
+                        },
+                        {
+                            "code": "courier_printing",
+                            "description": "Courier & Printing Charges",
+                            "source": "fixed",
+                            "hidden": false,
+                            "editable": true,
+                            "amount": 200,
+                            "sst_applicable": true
+                        },
+                        {
+                            "code": "transportation",
+                            "description": "Transportation Charges",
+                            "source": "fixed",
+                            "hidden": false,
+                            "editable": true,
+                            "amount": 200,
+                            "sst_applicable": true
+                        },
+                        {
+                            "code": "miscellaneous",
+                            "description": "Miscellaneous Charges",
+                            "source": "fixed",
+                            "hidden": false,
+                            "editable": true,
+                            "amount": 100,
+                            "sst_applicable": true
+                        }
+                    ]
+                }
+            ]
+        },
+        "catalog_sections": [
+            {
+                "code": "legal_transfer_non_hda",
+                "name": "Legal Fee - Transfer (Non-HDA) / Facility Agreement",
+                "conditions": [
+                    {
+                        "code": "first_500k",
+                        "label": "First RM500,000",
+                        "method": "tiered",
+                        "basis": "consideration_or_loan_amount",
+                        "amount": null,
+                        "rate": 0.0125,
+                        "minimum": 500,
+                        "maximum": null,
+                        "expression": "1.25%; minimum total legal fee RM500."
+                    },
+                    {
+                        "code": "next_7m",
+                        "label": "Next RM7,000,000",
+                        "method": "tiered",
+                        "basis": "consideration_or_loan_amount",
+                        "amount": null,
+                        "rate": 0.01,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": "1% for the portion above RM500,000 up to RM7.5 million."
+                    },
+                    {
+                        "code": "above_7_5m",
+                        "label": "Above RM7,500,000",
+                        "method": "formula",
+                        "basis": "consideration_or_loan_amount",
+                        "amount": null,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": "Negotiable rate, not exceeding 1%."
+                    },
+                    {
+                        "code": "facility_scale",
+                        "label": "Facility agreement scale fee",
+                        "method": "tiered",
+                        "basis": "loan_amount",
+                        "tiers": [
+                            {
+                                "up_to": 500000,
+                                "rate": 0.0125
+                            },
+                            {
+                                "up_to": 7500000,
+                                "rate": 0.01
+                            }
+                        ],
+                        "minimum": 500,
+                        "zero_when_basis_zero": true,
+                        "expression": "First RM500,000 at 1.25%; next RM7,000,000 at 1%. Above RM7.5 million requires a negotiated rate.",
+                        "source_file": "Legal Fee, Stamp Duty & Registration Fee - 25032026.pdf",
+                        "source_page": 1,
+                        "effective_from": "2026-03-25"
+                    }
+                ]
+            },
+            {
+                "code": "legal_transfer_hda",
+                "name": "Legal Fee - Transfer (HDA)",
+                "conditions": [
+                    {
+                        "code": "up_to_50k",
+                        "label": "RM50,000 or less",
+                        "method": "fixed",
+                        "basis": null,
+                        "amount": 500,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "50k_250k",
+                        "label": "Above RM50,000 to RM250,000",
+                        "method": "percentage",
+                        "basis": "scale_fee",
+                        "amount": null,
+                        "rate": 0.75,
+                        "minimum": 500,
+                        "maximum": null,
+                        "expression": "75% of scale fee; minimum RM500."
+                    },
+                    {
+                        "code": "250k_500k",
+                        "label": "Above RM250,000 to RM500,000",
+                        "method": "percentage",
+                        "basis": "scale_fee",
+                        "amount": null,
+                        "rate": 0.7,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "500k_1m",
+                        "label": "Above RM500,000 to RM1,000,000",
+                        "method": "percentage",
+                        "basis": "scale_fee",
+                        "amount": null,
+                        "rate": 0.65,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "above_1m",
+                        "label": "Above RM1,000,000",
+                        "method": "percentage",
+                        "basis": "scale_fee",
+                        "amount": null,
+                        "rate": 0.5,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    }
+                ]
+            },
+            {
+                "code": "charge_documents",
+                "name": "Legal Fee - Charge / Subsidiary Documents",
+                "conditions": [
+                    {
+                        "code": "charge_fee",
+                        "label": "Charge or subsidiary documents",
+                        "method": "percentage",
+                        "basis": "facility_legal_fee",
+                        "amount": null,
+                        "rate": 0.1,
+                        "minimum": 500,
+                        "maximum": 2000,
+                        "expression": "10% of facility agreement legal fee.",
+                        "zero_when_basis_zero": true
+                    }
+                ]
+            },
+            {
+                "code": "discharge_charge",
+                "name": "Legal Fee - Discharge of Charge",
+                "conditions": [
+                    {
+                        "code": "first_title",
+                        "label": "First title or charge",
+                        "method": "fixed",
+                        "basis": null,
+                        "amount": 400,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "additional_title",
+                        "label": "Each additional title or charge",
+                        "method": "per_unit",
+                        "basis": "additional_title_count",
+                        "amount": 100,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    }
+                ]
+            },
+            {
+                "code": "deed_receipt_reassignment",
+                "name": "Legal Fee - Deed of Receipt and Reassignment",
+                "conditions": [
+                    {
+                        "code": "first_property",
+                        "label": "First property",
+                        "method": "fixed",
+                        "basis": null,
+                        "amount": 500,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "additional_property",
+                        "label": "Each additional property",
+                        "method": "per_unit",
+                        "basis": "additional_property_count",
+                        "amount": 100,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "poa_revocation",
+                        "label": "Revocation of Power of Attorney",
+                        "method": "fixed",
+                        "basis": null,
+                        "amount": 200,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    }
+                ]
+            },
+            {
+                "code": "misc_legal_fees",
+                "name": "Miscellaneous Legal Fees",
+                "conditions": [
+                    {
+                        "code": "ckht_1a",
+                        "label": "CKHT 1A",
+                        "method": "formula",
+                        "basis": "individual_count",
+                        "amount": 500,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": "RM500 first individual, RM300 each additional individual."
+                    },
+                    {
+                        "code": "ckht_2a",
+                        "label": "CKHT 2A",
+                        "method": "formula",
+                        "basis": "individual_count",
+                        "amount": 400,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": "RM400 first individual, RM300 each additional individual."
+                    },
+                    {
+                        "code": "ckht_3",
+                        "label": "CKHT 3",
+                        "method": "per_unit",
+                        "basis": "individual_count",
+                        "amount": 200,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "ckht_502",
+                        "label": "CKHT 502",
+                        "method": "per_unit",
+                        "basis": "vendor_count",
+                        "amount": 250,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "cp_600",
+                        "label": "Form CP 600",
+                        "method": "fixed",
+                        "basis": null,
+                        "amount": 500,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "form_378",
+                        "label": "Form 378 including required SD",
+                        "method": "per_unit",
+                        "basis": "application_count",
+                        "amount": 300,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "statutory_declaration",
+                        "label": "Statutory Declaration",
+                        "method": "per_unit",
+                        "basis": "document_count",
+                        "amount": 150,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    }
+                ]
+            },
+            {
+                "code": "transfer_stamp_duty",
+                "name": "Stamp Duty on Transfer",
+                "conditions": [
+                    {
+                        "code": "local_tiered",
+                        "label": "Malaysian / PR / Local Company",
+                        "method": "tiered",
+                        "basis": "property_value",
+                        "amount": null,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": "1% first RM100k; 2% above RM100k to RM500k; 3% above RM500k to RM1m; 4% above RM1m."
+                    },
+                    {
+                        "code": "foreign_residential",
+                        "label": "Foreign - residential property",
+                        "method": "percentage",
+                        "basis": "property_value",
+                        "amount": null,
+                        "rate": 0.08,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "foreign_non_residential",
+                        "label": "Foreign - non-residential property",
+                        "method": "percentage",
+                        "basis": "property_value",
+                        "amount": null,
+                        "rate": 0.04,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    }
+                ]
+            },
+            {
+                "code": "facility_stamp_duty",
+                "name": "Stamp Duty on Facility Agreement",
+                "conditions": [
+                    {
+                        "code": "facility",
+                        "label": "Facility Agreement",
+                        "method": "percentage",
+                        "basis": "loan_plus_financed_legal_fee",
+                        "amount": null,
+                        "rate": 0.005,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": "Exclude MRTA / MLTA."
+                    }
+                ]
+            },
+            {
+                "code": "transfer_registration_johor",
+                "name": "Registration Fee for Transfer (Johor)",
+                "conditions": [
+                    {
+                        "code": "transfer_registration",
+                        "label": "Transfer registration scale",
+                        "method": "tiered",
+                        "basis": "property_value",
+                        "amount": null,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": "Effective 1 April 2026. RM50 up to RM25k; RM80 to RM50k; RM150 to RM100k; RM300 to RM200k; RM600 to RM300k; RM1,500 to RM400k; RM2,000 to RM500k; RM2,500 to RM600k; RM3,000 to RM700k; RM3,500 to RM800k; RM4,000 to RM900k; RM4,500 to RM1m. Above RM1m add RM250 per RM50k for Malaysian or RM400 for foreigner."
+                    }
+                ]
+            },
+            {
+                "code": "other_registration",
+                "name": "Other Registration Fees",
+                "conditions": [
+                    {
+                        "code": "form_16a",
+                        "label": "Entry of Charge (Form 16A)",
+                        "method": "per_unit",
+                        "basis": "charge_count",
+                        "amount": 120,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": "Plus RM60 PA noting fee per PA."
+                    },
+                    {
+                        "code": "form_16n",
+                        "label": "Discharge of Charge (Form 16N)",
+                        "method": "per_unit",
+                        "basis": "charge_count",
+                        "amount": 120,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": "Plus RM60 PA noting fee per PA."
+                    },
+                    {
+                        "code": "form_19b",
+                        "label": "Entry of Private Caveat (Form 19B)",
+                        "method": "per_unit",
+                        "basis": "caveat_count",
+                        "amount": 500,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "form_19g",
+                        "label": "Withdrawal of Private Caveat (Form 19G)",
+                        "method": "per_unit",
+                        "basis": "caveat_count",
+                        "amount": 120,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "other_instrument",
+                        "label": "Other instrument not listed",
+                        "method": "per_unit",
+                        "basis": "instrument_count",
+                        "amount": 120,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    }
+                ]
+            },
+            {
+                "code": "searches",
+                "name": "Searches",
+                "conditions": [
+                    {
+                        "code": "land_current",
+                        "label": "Land Search - current endorsements",
+                        "method": "fixed",
+                        "basis": null,
+                        "amount": 80,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "land_previous",
+                        "label": "Land Search - previous endorsements",
+                        "method": "fixed",
+                        "basis": null,
+                        "amount": 100,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "official_current",
+                        "label": "Official Land Search - current endorsements",
+                        "method": "fixed",
+                        "basis": null,
+                        "amount": 150,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "official_previous",
+                        "label": "Official Land Search - previous endorsements",
+                        "method": "fixed",
+                        "basis": null,
+                        "amount": 180,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    }
+                ]
+            },
+            {
+                "code": "consent",
+                "name": "Consent",
+                "conditions": [
+                    {
+                        "code": "section_124",
+                        "label": "Application under Section 124 NLC",
+                        "method": "fixed",
+                        "basis": null,
+                        "amount": 100,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "low_cost",
+                        "label": "Low Cost / Rumah Murah / Tanah Kurnia",
+                        "method": "per_unit",
+                        "basis": "unit_or_title_count",
+                        "amount": 500,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "bumiputera",
+                        "label": "Lot Bumiputera",
+                        "method": "per_unit",
+                        "basis": "unit_or_title_count",
+                        "amount": 2500,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "commercial",
+                        "label": "Commercial",
+                        "method": "per_unit",
+                        "basis": "unit_or_title_count",
+                        "amount": 3000,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "industrial_bumi",
+                        "label": "Industrial Lot Bumiputera",
+                        "method": "per_unit",
+                        "basis": "unit_or_title_count",
+                        "amount": 8000,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "agricultural",
+                        "label": "Agricultural Land",
+                        "method": "per_unit",
+                        "basis": "acre_or_part",
+                        "amount": 100,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    }
+                ]
+            },
+            {
+                "code": "foreigner_acquisition",
+                "name": "Consent for Acquisition by Foreigner",
+                "conditions": [
+                    {
+                        "code": "application",
+                        "label": "Application for consent to transfer",
+                        "method": "fixed",
+                        "basis": null,
+                        "amount": 2000,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "residential_developer",
+                        "label": "Residential - purchase from developer",
+                        "method": "percentage",
+                        "basis": "purchase_price",
+                        "amount": null,
+                        "rate": 0.03,
+                        "minimum": 30000,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "residential_subsale",
+                        "label": "Residential - subsale",
+                        "method": "formula",
+                        "basis": "higher_purchase_or_jpph_value",
+                        "amount": null,
+                        "rate": 0.03,
+                        "minimum": 30000,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "industrial_purchase",
+                        "label": "Industrial - purchase",
+                        "method": "percentage",
+                        "basis": "purchase_price",
+                        "amount": null,
+                        "rate": 0.04,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    }
+                ]
+            },
+            {
+                "code": "tenancy_legal_fee",
+                "name": "Legal Fee for Tenancy",
+                "conditions": [
+                    {
+                        "code": "up_to_10k",
+                        "label": "Monthly rental RM10,000 or less",
+                        "method": "percentage",
+                        "basis": "monthly_rental",
+                        "amount": null,
+                        "rate": 0.3,
+                        "minimum": 500,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "above_10k",
+                        "label": "Monthly rental above RM10,000",
+                        "method": "formula",
+                        "basis": "monthly_rental",
+                        "amount": null,
+                        "rate": 0.15,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": "Minimum 15%, maximum 25% of monthly rental."
+                    }
+                ]
+            },
+            {
+                "code": "tenancy_stamp_duty",
+                "name": "Stamp Duty on Tenancy",
+                "conditions": [
+                    {
+                        "code": "one_year",
+                        "label": "One year",
+                        "method": "per_unit",
+                        "basis": "each_rm250_annual_rental",
+                        "amount": 1,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "one_to_three",
+                        "label": "More than 1 year, less than 3 years",
+                        "method": "per_unit",
+                        "basis": "each_rm250_annual_rental",
+                        "amount": 3,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "three_to_five",
+                        "label": "More than 3 years, less than 5 years",
+                        "method": "per_unit",
+                        "basis": "each_rm250_annual_rental",
+                        "amount": 5,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    },
+                    {
+                        "code": "over_five",
+                        "label": "More than 5 years or indefinite",
+                        "method": "per_unit",
+                        "basis": "each_rm250_annual_rental",
+                        "amount": 7,
+                        "rate": null,
+                        "minimum": null,
+                        "maximum": null,
+                        "expression": null
+                    }
+                ]
+            }
+        ]
+    }
+]
