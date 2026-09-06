@@ -66,3 +66,12 @@ macOS Apple Silicon 应用位于 `release/mac-arm64/Chai Associates.app`。当�
 - SQLite 使用 WAL、FULL 同步、事务及修订号检查，报价与模板更新不会静默覆盖过期编辑。
 - 20 组原 Laravel 计算结果对照覆盖四种模板、五个金额边界；另有本地持久化、模板快照/版本、输入验证、备份恢复和 XLSX 读取验证。
 - Electron 实测覆盖启动即用、自动计算 Preview、保存/重新打开、模板编辑、PDF/Excel 导出、备份及数据库复制切换。
+
+## 无付费证书的安装包
+
+```sh
+npm run dist -- --mac --arm64 --x64 --publish never
+npm run dist -- --win --x64 --publish never
+```
+
+安装包输出到 `release/`，文件名包含版本、系统与架构。Mac 使用免费的 ad-hoc 本地签名，不使用 Developer ID，不进行 Apple 公证；Windows 禁用证书签名但保留图标及版本信息。首次安装可能出现系统安全提示。GitHub Releases 为 private，仅有仓库访问权限的用户可下载。
