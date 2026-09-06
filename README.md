@@ -76,3 +76,5 @@ composer test --working-dir=backend
 Docker 环境可执行 `sh scripts/test-docker.sh` 运行完整测试（macOS/Linux 或 Windows Git Bash）。脚本创建独立的 `chai_test` 数据库，完成后删除；若该测试库已存在则拒绝覆盖。
 
 `backend/tests/run.php` 包含 20 组原版计算对照及规则边界测试。设置 `DB_NAME=chai_test` 后才会执行数据库集成测试，必须使用专用的空测试库；绝不能指向日常使用的数据库。集成测试覆盖持久化、过期编辑、模板版本、快照、PDF/XLSX、恢复回滚及备份保留。
+
+Quotation PDF follows the Preview layout (metadata, fee sections, subtotals, SST, total and footer). Exports use the saved quotation snapshot and fit all content onto one A4 page; longer quotations scale down proportionally.

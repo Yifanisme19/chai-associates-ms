@@ -938,7 +938,7 @@ onUnmounted(() => {clearTimeout(timer); calculationAbort?.abort();});
                                     v-for="(section, sectionIndex) in groupedSections"
                                     :key="section.code"
                                 >
-                                    <tr v-if="documentLayout.categories && (sectionIndex === 0 || documentLayout.section_categories?.[groupedSections[sectionIndex - 1].code] !== documentLayout.section_categories?.[section.code])" class="section-row"><td colspan="4">{{ documentLayout.categories.find(c => c.code === (documentLayout.section_categories?.[section.code] ?? section.category))?.name }}</td></tr>
+                                    <tr v-if="documentLayout.categories && (sectionIndex === 0 || categoryKey(groupedSections[sectionIndex - 1]) !== categoryKey(section))" class="section-row"><td colspan="4">{{ documentLayout.categories.find(c => c.code === (documentLayout.section_categories?.[section.code] ?? section.category))?.name }}</td></tr>
                                     <tr
                                         v-if="
                                             !documentLayout.categories && section.category === 'professional'

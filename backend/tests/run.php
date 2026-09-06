@@ -7,6 +7,8 @@ use Chai\Data;
 use Chai\Exporter;
 use Chai\Store;
 use PhpOffice\PhpSpreadsheet\IOFactory;
+use setasign\Fpdi\Fpdi;
+use setasign\Fpdi\PdfParser\StreamReader;
 
 function check(bool $ok, string $message): void
 {
@@ -23,7 +25,7 @@ function rejects(callable $fn, string $pattern = ''): void
             throw $e;
         }
 
-return;
+        return;
     }throw new RuntimeException('Expected rejection.');
 }
 $passed = 0;
@@ -70,6 +72,31 @@ test('Protected amounts, hidden taxable lines and custom fees', function () use 
     check($items[$fee['code']]['amount'] == 6250, 'Protected amount');
     check($c['summary']['professional_fees'] == $r['summary']['professional_fees'] - 6250 + 100, 'Hidden total');
     check($c['summary']['sst'] == $r['summary']['sst'] - 500 + 8, 'Hidden tax');
+});
+foreach ($seeds as $seed) {
+    test('Single-page Preview PDF '.$seed['code'], function () use ($seed, $input) {
+        $q = ['number' => 'PDF-TEST', 'input' => $input, 'calculation' => Calculator::calculate($seed + ['id' => 'pdf', 'version' => 1], $input)];
+        $reader = new Fpdi;
+        check($reader->setSourceFile(StreamReader::createByString(Exporter::pdf($q))) === 1, 'PDF must be one page');
+        $size = $reader->getTemplateSize($reader->importPage(1));
+        check(abs($size['width'] - 210) < 1 && abs($size['height'] - 297) < 1, 'A4 page');
+        $html = Exporter::html($q);
+        check(str_contains($html, 'Total SST Payable') && str_contains($html, 'TOTAL PAYABLE INCLUSIVE OF SST'), 'Preview totals');
+    });
+}
+test('Long quotation remains one page with escaped content and footer', function () use ($seeds, $input) {
+    $c = Calculator::calculate($seeds[0] + ['id' => 'pdf', 'version' => 1], $input);
+    for ($n = 0; $n < 100; $n++) {
+        $c['items'][] = array_replace($c['items'][0], ['description' => "Extra service $n <safe> & details ".str_repeat('Long description ', 8), 'sort_order' => 1000 + $n]);
+    }
+    $c['items'][] = array_replace($c['items'][0], ['description' => 'HIDDEN_SENTINEL', 'hidden' => true]);
+    $q = ['number' => 'LONG-PDF', 'input' => $input, 'calculation' => $c];
+    $html = Exporter::html($q);
+    check(str_contains($html, 'Extra service 99 &lt;safe&gt; &amp; details'), 'Final item escaped and included');
+    check(! str_contains($html, 'HIDDEN_SENTINEL'), 'Hidden items excluded');
+    check(str_contains($html, 'excel-note'), 'Footer included');
+    $reader = new Fpdi;
+    check($reader->setSourceFile(StreamReader::createByString(Exporter::pdf($q))) === 1, 'Long PDF must remain one page');
 });
 if (getenv('DB_NAME') !== 'chai_test') {
     echo "$passed calculation tests passed. Set DB_NAME=chai_test for database tests.\n";
@@ -171,11 +198,11 @@ test('Automatic backup once daily, retention and disabled setting', function () 
         file_put_contents($p, '{}');
         touch($p, time() - $i * 86400);
     }$data->daily();
-    check(count(array_filter($data->backups(),fn ($b) => $b['kind'] === 'automatic')) === 14,'Retention');
-    $store->setSetting('autoBackup',false);
+    check(count(array_filter($data->backups(), fn ($b) => $b['kind'] === 'automatic')) === 14, 'Retention');
+    $store->setSetting('autoBackup', false);
     $count = count($data->backups());
     $data->daily();
-    check(count($data->backups()) === $count,'Disabled');
+    check(count($data->backups()) === $count, 'Disabled');
 });
 foreach (glob($data->directory.'/*') as $f) {
     unlink($f);

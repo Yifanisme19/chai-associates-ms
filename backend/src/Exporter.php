@@ -9,36 +9,14 @@ use Dompdf\Options;
 use PhpOffice\PhpSpreadsheet\Cell\DataType;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+use setasign\Fpdi\Fpdi;
+use setasign\Fpdi\PdfParser\StreamReader;
 
 final class Exporter
 {
-    private static function e(mixed $v): string
-    {
-        return htmlspecialchars((string) ($v ?? ''), ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
-    }
-
     public static function html(array $q): string
     {
-        $e = self::e(...);
-        $rm = fn ($n) => number_format((float) $n, 2);
-        $i = $q['input'];
-        $c = $q['calculation'];
-        $layout = $c['layout'];
-        $rows = '';
-        $section = '';
-        foreach ($c['items'] as $item) {
-            if ($item['hidden']) {
-                continue;
-            }if ($section !== $item['section_code']) {
-                $section = $item['section_code'];
-                $rows .= '<tr class="section"><td colspan="2">'.$e($item['section_name']).'</td></tr>';
-            }$rows .= '<tr><td>'.$e($item['description']).($item['sst_applicable'] ? ' *' : '').'</td><td class="amount">'.$rm($item['amount']).'</td></tr>';
-        }
-        foreach (['Professional fees' => 'professional_fees', 'Disbursements' => 'disbursements', 'SST (* taxable items)' => 'sst', 'Total payable' => 'total_payable'] as $label => $key) {
-            $rows .= '<tr'.($key === 'total_payable' ? ' class="total"' : '').'><td>'.$label.'</td><td class="amount">'.$rm($c['summary'][$key]).'</td></tr>';
-        }
-
-        return '<!doctype html><html><head><meta charset="utf-8"><style>@page{size:A4;margin:18mm}body{font:11px DejaVu Sans,sans-serif;color:#191919}h1{font-size:20px}h2{font-size:17px}p{white-space:pre-line;line-height:1.5}table{width:100%;border-collapse:collapse}td{padding:6px 3px;border-bottom:1px solid #eee}.amount{text-align:right;white-space:nowrap}.section{font-weight:bold;background:#f3f3f3}thead{display:table-header-group}tr{page-break-inside:avoid}.total{font-size:15px;font-weight:bold}footer{font-size:10px;margin-top:25px;white-space:pre-line}</style></head><body><h1>CHAI &amp; ASSOCIATES</h1><p>'.$e(implode("\n", $layout['company_lines'] ?? [])).'</p><h2>'.$e($layout['document_title'] ?? 'PROFORMA').'</h2><p>Quotation: '.$e($i['ref_code'] ?? $q['number']).' · '.$e($i['quotation_date'])."\nClient: ".$e($i['client_name'])."\nPIC: ".$e($i['pic'] ?? '')."\nReference: ".$e($i['reference'] ?? '')."\n".$e($c['template_snapshot']['name']).' · Version '.$c['template_snapshot']['version'].'</p><table><thead><tr><th align="left">Description</th><th align="right">Amount (RM)</th></tr></thead><tbody>'.$rows.'</tbody></table><p>Loan / property amount: RM '.$rm($i['loan_amount'])."\nTotal financing: RM ".$rm($c['summary']['total_financing']).'</p><footer>'.$e($layout['footer_note'] ?? '')."\n".$e(implode("\n", $layout['payment_lines'] ?? [])).'</footer></body></html>';
+        return QuotationDocument::html($q);
     }
 
     public static function pdf(array $q): string
@@ -47,12 +25,42 @@ final class Exporter
         $options->set('isRemoteEnabled', false);
         $options->set('isPhpEnabled', false);
         $options->set('chroot', __DIR__);
-        $pdf = new Dompdf($options);
-        $pdf->loadHtml(self::html($q));
-        $pdf->setPaper('A4');
-        $pdf->render();
+        $options->set('isFontSubsettingEnabled', true);
+        $document = new Dompdf($options);
+        // Render at a fixed document width first. Measure the real bottom, including
+        // wrapped descriptions and the footer, before uniformly fitting it to A4.
+        $pageWidth = 595.28;
+        $pageHeight = 841.89;
+        $margin = 28.35;
+        $contentWidth = $pageWidth - 2 * $margin;
+        $renderHeight = 14400.0;
+        $endY = null;
+        $document->setCallbacks([['event' => 'end_frame', 'f' => function ($frame) use (&$endY) {
+            $node = $frame->get_node();
+            if ($node instanceof \DOMElement && $node->getAttribute('id') === 'document-end') {
+                $endY = (float) $frame->get_position('y') + (float) $frame->get_margin_height();
+            }
+        }]]);
+        $document->loadHtml(self::html($q));
+        $document->setPaper([0, 0, $contentWidth, $renderHeight]);
+        $document->render();
+        if ($endY === null) {
+            throw new \RuntimeException('Could not measure the quotation PDF.');
+        }
+        $pdf = new Fpdi('P', 'pt', [$pageWidth, $pageHeight]);
+        $pages = $pdf->setSourceFile(StreamReader::createByString($document->output()));
+        $contentHeight = ($pages - 1) * $renderHeight + $endY + 2;
+        $scale = min(1.0, ($pageHeight - 2 * $margin) / max(1, $contentHeight));
+        $pdf->SetAutoPageBreak(false);
+        $pdf->AddPage();
+        $pdf->SetTitle((string) $q['number']);
+        $pdf->SetCreator('Chai & Associates');
+        for ($page = 1; $page <= $pages; $page++) {
+            $template = $pdf->importPage($page);
+            $pdf->useTemplate($template, $margin + ($contentWidth * (1 - $scale) / 2), $margin + ($page - 1) * $renderHeight * $scale, $contentWidth * $scale, $renderHeight * $scale);
+        }
 
-        return $pdf->output();
+        return $pdf->Output('S');
     }
 
     public static function xlsx(array $q): string
