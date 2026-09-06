@@ -4,11 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "vite build",
-    "start": "docker compose up -d --build",
-    "stop": "docker compose stop",
-    "logs": "docker compose logs -f",
-    "test": "php server/tests/run.php"
+    "build": "vite build"
   },
   "dependencies": {},
   "devDependencies": {
@@ -27,6 +23,6 @@
     "vue": "3.5.42",
     "vue-sonner": "^2.0.0"
   },
-  "description": "Local PHP 8 and MySQL quotation tools",
+  "description": "Vue frontend for Chai Associates local tools",
   "author": "Chai & Associates"
 }

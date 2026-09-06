@@ -7,9 +7,9 @@ export default defineConfig({
   plugins: [vue(), tailwindcss()],
   resolve: {
     alias: {
-      "@": fileURLToPath(new URL("./renderer/legacy", import.meta.url)),
+      "@": fileURLToPath(new URL("./src/legacy", import.meta.url)),
       "@inertiajs/vue3": fileURLToPath(
-        new URL("./renderer/bridge.js", import.meta.url),
+        new URL("./src/bridge.js", import.meta.url),
       ),
     },
   },

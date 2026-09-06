@@ -23,7 +23,7 @@ final class Store
         $this->db->exec('CREATE TABLE IF NOT EXISTS settings(name VARCHAR(100) PRIMARY KEY,value LONGTEXT NOT NULL) ENGINE=InnoDB COLLATE=utf8mb4_bin');
         if (! $this->setting('initialized', false)) {
             $this->transaction(function () {
-                foreach (json_decode(file_get_contents((is_file(dirname(__DIR__).'/seed/templates.json') ? dirname(__DIR__) : dirname(__DIR__, 2)).'/seed/templates.json'), true, 512, JSON_THROW_ON_ERROR) as $t) {
+                foreach (json_decode(file_get_contents(dirname(__DIR__).'/seed/templates.json'), true, 512, JSON_THROW_ON_ERROR) as $t) {
                     $this->insertTemplate(array_replace($t, ['version' => 1]));
                 }
                 $this->setSetting('initialized', true);

@@ -34,7 +34,7 @@ function test(string $name, callable $fn): void
     $passed++;
     echo "PASS $name\n";
 }
-$seeds = json_decode(file_get_contents((is_file(dirname(__DIR__).'/seed/templates.json') ? dirname(__DIR__) : dirname(__DIR__, 2)).'/seed/templates.json'), true);
+$seeds = json_decode(file_get_contents(dirname(__DIR__).'/seed/templates.json'), true);
 $input = ['client_name' => 'PHP Test client', 'quotation_date' => '2026-09-06', 'status' => 'draft', 'loan_amount' => 500000, 'ccm_search_amount' => 0, 'finance_legal_fee' => false, 'finance_insurance' => false];
 foreach (json_decode(file_get_contents(__DIR__.'/parity.json'), true) as $fixture) {
     test('Parity '.$fixture['code'].' @ '.$fixture['input']['loan_amount'], function () use ($seeds, $fixture) {

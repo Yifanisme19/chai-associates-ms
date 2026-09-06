@@ -1,7 +1,9 @@
-node_modules/
-dist/
-release/
+frontend/node_modules/
+frontend/dist/
+backend/vendor/
+backend/data/
 output/
+.playwright-cli/
 *.sqlite*
 *.db
 *.db-*
@@ -9,10 +11,5 @@ output/
 .env
 .env.*
 !.env.example
-.qa/
 .DS_Store
 *.log
-server/vendor/
-server/data/
-
-.playwright-cli/
