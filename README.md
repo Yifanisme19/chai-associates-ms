@@ -28,7 +28,7 @@ docker compose up -d --build
 
 Windows PowerShell 可用 `Copy-Item .env.example .env` 创建配置。
 
-打开 **http://localhost:8088**。默认仅绑定本机回环地址，MySQL 不向宿主机发布端口。要换端口，修改 `.env` 中的 `APP_PORT` 后重新运行上述命令。
+打开 **http://localhost:8088**，或在同一局域网使用 **http://服务器IP:8088**。默认 `APP_BIND_ADDRESS=0.0.0.0` 监听所有 IPv4 网络接口；如仅需本机访问，可在 `.env` 设置 `APP_BIND_ADDRESS=127.0.0.1`。MySQL 不向宿主机发布端口。要换端口，修改 `.env` 中的 `APP_PORT` 后重新运行上述命令。系统没有登录，能访问此地址的设备使用同一份数据；请仅在可信网络开放该端口。
 
 首次启动只初始化四套默认模板：Loan Refinance、Loan Subsale、SPA Purchaser、SPA Vendor。报价列表为空，不导入旧版业务数据。后续启动不会重复初始化或覆盖已保存数据。
 

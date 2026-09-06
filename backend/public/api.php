@@ -8,11 +8,13 @@ use Chai\Store;
 
 header('Cache-Control: no-store');
 header('X-Content-Type-Options: nosniff');
-// Local, account-free tool: reject cross-site requests and DNS-rebinding hosts.
+// Accept literal IP addresses and localhost; keep cross-site and rebinding protection.
 $host = $_SERVER['HTTP_HOST'] ?? '';
-if (! preg_match('/^(localhost|127\.0\.0\.1|\[::1\])(:\d+)?$/D', $host)) {
+$hostname = parse_url('http://'.$host, PHP_URL_HOST);
+$ip = is_string($hostname) ? trim($hostname, '[]') : '';
+if (! is_string($hostname) || ($hostname !== 'localhost' && filter_var($ip, FILTER_VALIDATE_IP) === false)) {
     http_response_code(403);
-    exit('Local access only.');
+    exit('Use localhost or an IP address.');
 }
 $origin = $_SERVER['HTTP_ORIGIN'] ?? '';
 if ($_SERVER['REQUEST_METHOD'] !== 'POST' || ($_SERVER['HTTP_X_CHAI_REQUEST'] ?? '') !== '1' || ($origin !== '' && $origin !== 'http://'.$host && $origin !== 'https://'.$host)) {
